@@ -6,39 +6,42 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:09:59 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/22 09:46:58 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:55:21 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include "Contact.hpp" 
+# include "Contact.hpp"
 class PhoneBook {
 
 	private:
 
-		Contact		_PBContacts[8];
-		static int	_NContacts;
-		int			_Index;
+		Contact		_contacts[8];
+		int			_next;
+		int			_n;
 
-		void		print_contacts();
-		
+		std::string	user_input(std::string prompt);
+		void		print_contacts(int i);
+
 	public:
 
 		PhoneBook();
-		PhoneBook(Contact _PBContact[8]);
+
 		~PhoneBook();
+
+		PhoneBook(const PhoneBook&);
 
 		int	add_contact();
 
-		void	searchh_contact();
+		void	search_contact();
 
 };
 
 #endif
 
-	
+
 
 
 }
