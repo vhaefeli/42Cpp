@@ -6,26 +6,14 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:57:41 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/21 18:23:25 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/22 09:46:53 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
+#include <string>
+#include <sstream>
 
-std::string StringToUpper(std::string str)
-{
-	for (std::string::iterator p = str.begin(); str.end() != p; ++p)
-		*p = std::toupper(*p);
-	return (str);
-}
+#include "PhoneBook.hpp"
 
-int main (int argc, char **argv){
-	if (argc == 1)
-		std::cout <<"* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else {
-		for (int i = 1; i < argc; i++)
-			std::cout << StringToUpper(argv[i]);
-	std::cout << std::endl;
-	return (0);
-	}
-}
