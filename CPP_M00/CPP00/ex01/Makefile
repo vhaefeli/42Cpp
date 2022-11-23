@@ -6,20 +6,21 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2022/11/21 15:13:00 by vhaefeli         ###   ########.fr        #
+#    Updated: 2022/11/23 11:09:30 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= megaphone
+TARGET		= phonebook
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
+CLASS_DIR	= class
 OBJS_DIR	= obj
-SRCS		= Contact.cpp\
-				PhoneBook.cpp\
-				main.cpp
-				
+SRCS		= $(CLASS_DIR)/Contact.cpp\
+				$(CLASS_DIR)/PhoneBook.cpp\
+				$(SRCS_DIR)/main.cpp
+
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 all: $(TARGET)
@@ -46,7 +47,7 @@ fclean: clean
 
 re: fclean all
 
-$(OBJS_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJS_DIR)
+$(OBJS_DIR)/%.o: %.cpp | $(OBJS_DIR)
 	$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) -o $@ $^
 
 $(TARGET): $(OBJS)
