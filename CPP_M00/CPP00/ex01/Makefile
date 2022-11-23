@@ -6,15 +6,15 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2022/11/23 11:09:30 by vhaefeli         ###   ########.fr        #
+#    Updated: 2022/11/23 11:58:43 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		= phonebook
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
-CPPFLAGS	= -Iinclude
-SRC_DIR		= src
+CPPFLAGS	= -Iclass
+SRCS_DIR	= src
 CLASS_DIR	= class
 OBJS_DIR	= obj
 SRCS		= $(CLASS_DIR)/Contact.cpp\
