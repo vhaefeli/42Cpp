@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:57:41 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/22 16:24:39 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/25 16:20:32 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <sstream>
-
-#include "PhoneBook.hpp"
-
 PhoneBook::PhoneBook()
 : _next(0), _n(0)
 {
@@ -34,12 +27,12 @@ PhoneBook::~PhoneBook()
 {
 }
 
-PhoneBook::PhoneBook(const PhoneBook& book)
-{
-	this->_next = book._next;
-	for (int i(0); i < 8; i++)
-		this->_contacts[i] = book._contacts[i];
-}
+// PhoneBook::PhoneBook(const PhoneBook& book)
+// {
+// 	this->_next = book._next;
+// 	for (int i(0); i < 8; i++)
+// 		this->_contacts[i] = book._contacts[i];
+// }
 
 std::string	PhoneBook::user_input(std::string prompt)
 {

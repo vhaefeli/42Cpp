@@ -6,65 +6,47 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:30:40 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/23 11:08:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/25 16:20:30 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Contact.hpp"
 
+std::string Contact::_fields[_NbDetails] = {
+	"INDEX",
+	"FIRST NAME",
+	"LAST NAME",
+	"NICKNAME",
+	"PHONE NUMBER",
+	"DARKEST SECRET"
+};
 
-
-Contact::Contact() :
-	first_name(""),
-	last_name(""),
-	nickname(""),
-	phone_number(""),
-	darkest_secret("")
-{
+Contact::Contact() {
+	for (int i = 0; i < this->_NbDetails; i++) {
+		this->_details[i] = std::string();
+	}
+	return;
 }
 
-Contact::Contact(std::string fn, std::string ln, std::string nn, std::string ph,
-		std::string ds) :
-	first_name(fn),
-	last_name(ln),
-	nickname(nn),
-	phone_number(ph),
-	darkest_secret(ds)
-{
+ Contact::~Contact(void) {
+	return;
 }
 
-Contact &Contact::operator=(const Contact& c)
-{
-	this->first_name = c.first_name;
-	this->last_name = c.last_name;
-	this->nickname = c.nickname;
-	this->phone_number = c.phone_number;
-	this->darkest_secret = c.darkest_secret;
-	return (*this);
-}
-
-Contact::~Contact()
-{
-}
-
-
-std::string Contact::getFirstName() const{
-	return this->first_name;
-}
-
-std::string Contact::getLastName() const{
-	return this->last_name;
-}
-
-std::string Contact::getNickname() const{
-	return this->nickname;
-}
-
-std::string Contact::getPhoneNumber() const{
-	return this->phone_number;
-}
-
-std::string Contact::getDarkestSecret() const{
-	return this->darkest_secret;
+bool	setContact(int index){
+	this->detail[0] = std::to_string(index);
+	std::cout << "# Please fill the following:" << std::endl;
+	for (int i = 1; i < this->_NbDetails; i++) {
+		if (!this->_details[i].empty())
+			this->_details[i].clear();
+		while (this->_details[i].empty()) {
+			std::cout << "# " << this->_fields[i] << ":" << std::endl;
+			std::cout << "> "
+			std::getline(std::cin, this->_details[i]);
+			if (this->_details[i].empty()) {
+				std::cout << EC << "# Error: Empty field." << NC << std::endl;
+			}
+		}
+	}
+	std::cout << SC << "# Contact n°" << this->_index << " added to phonebook.\n" << std::endl;
+	return (true);
 }
