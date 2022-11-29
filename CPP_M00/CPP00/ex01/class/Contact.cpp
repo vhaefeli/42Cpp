@@ -6,15 +6,13 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:30:40 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/29 09:48:37 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:24:45 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-int	_NbDetails = 6;
-
-std::string Contact::_fields[_NbDetails] = {
+std::string Contact::fields[NB_DETAILS] = {
 	"INDEX",
 	"FIRST NAME",
 	"LAST NAME",
@@ -23,42 +21,70 @@ std::string Contact::_fields[_NbDetails] = {
 	"DARKEST SECRET"
 };
 
-Contact::Contact() {
-	for (int i = 0; i < this->_NbDetails; i++) {
+Contact::Contact()
+{
+	for (int i = 0; i < NB_DETAILS; i++) {
 		this->_details[i] = std::string();
 	}
 	return;
 }
 
- Contact::~Contact(void) {
+Contact::~Contact(void)
+{
 	return;
 }
 
-bool	setContact(int index){
-	this->detail[0] = std::to_string(index);
+bool	Contact::setContact(int index)
+{
+	this->_details[0] = std::to_string(index);
 	std::cout << "# Please fill the following:" << std::endl;
-	for (int i = 1; i < this->_NbDetails; i++) {
+	for (int i = 1; i < NB_DETAILS; i++) {
 		if (!this->_details[i].empty())
 			this->_details[i].clear();
 		while (this->_details[i].empty()) {
-			std::cout << "# " << this->_fields[i] << ":" << std::endl;
-			std::cout << "> "
+			std::cout << "# " << fields[i] << ":" << std::endl;
+			std::cout << "> ";
 			std::getline(std::cin, this->_details[i]);
 			if (this->_details[i].empty()) {
-				std::cout << EC << "# Error: Empty field." << NC << std::endl;
+				std::cout << "# Error: Empty field." << std::endl;
 			}
 		}
 	}
-	std::cout << SC << "# Contact n°" << this->_index << " added to phonebook.\n" << std::endl;
+	std::cout << "# Contact n°" << this->_details[0] << " added to phonebook.\n" << std::endl;
 	return (true);
 }
 
-std::string	SizeTenString(std::string str)
+static std::string trunc(std::string s)
 {
-	for (int i = 0, str[i] && i < 9)
+	if (s.length() <= 10)
+		return (s);
+	return (s.substr(0, 9) + ".");
 }
 
-void	showContactSmall()
+void	Contact::showContactSmall()
 {
+	for (int i(0); i < 4; i++)
+	{
+		if (this->_details[i].empty())
+			break ;
+		std::cout << "|" << std::right << std::setw(10) << trunc(this->_details[i]);
+	}
+	std::cout << std::endl;
+}
 
+void	Contact::showContactFull()
+{
+	for (int i(0); i < NB_DETAILS; i++)
+	{
+		std::cout << fields[i] << ": " << this->_details[i] << std::endl;
+	}
+}
+
+void	Contact::showHeader()
+{
+	for (int i(0); i < 4; i++)
+	{
+		std::cout << "|" << std::right << std::setw(10) << trunc(fields[i]);
+	}
+	std::cout << std::endl;
 }

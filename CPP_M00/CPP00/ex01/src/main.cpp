@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 16:23:01 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/22 16:24:22 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:20:52 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@ int main(void)
 		std::cout << "> ";
 		std::getline(std::cin, user_input);
 		if (!user_input.compare("ADD"))
-			book.add_contact();
+			book.addContact();
 		else if (!user_input.compare("SEARCH"))
-			book.search_contact();
+			book.searchContact();
 		else if (!user_input.compare("EXIT"))
 			break ;
+		else
+		{
+			std::cout << "Please use one of the following commands:" << std::endl;
+			std::cout << ADD << std::endl << SEARCH << std::endl << EXIT << std::endl;
+		}
 	}
 	return (0);
 }

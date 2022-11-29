@@ -6,15 +6,19 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:15:01 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/25 16:20:51 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/29 10:27:22 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include <string>
 #include <iostream>
+#include <iomanip>
+#include <string>
+#include <sstream>
+
+#define NB_DETAILS 6
 
 class Contact {
 
@@ -30,9 +34,8 @@ public:
 
 private:
 
-	int				    _NbDetails;
-	static std::string	_fields[_NbDetails];
-	std::string			_details[_NbDetails];
+	static std::string	fields[NB_DETAILS];
+	std::string			_details[NB_DETAILS];
 };
 
 #endif

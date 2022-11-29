@@ -6,36 +6,38 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:09:59 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/23 11:08:32 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/29 11:40:01 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+# define ADD "ADD"
+# define SEARCH "SEARCH"
+# define EXIT "EXIT"
+# define MAX_CONTACTS 8
+
 # include "Contact.hpp"
+
 class PhoneBook {
 
 	private:
 
 		Contact		_contacts[8];
-		int			_next;
+		int			_nContacts;
 		int			_n;
 
-		std::string	user_input(std::string prompt);
-		void		print_contacts(int i);
+		void		_printPhoneBook(void);
 
 	public:
 
 		PhoneBook();
-
 		~PhoneBook();
 
-		PhoneBook(const PhoneBook&);
+		int	addContact();
 
-		int	add_contact();
-
-		void	search_contact();
+		void	searchContact();
 
 };
 
