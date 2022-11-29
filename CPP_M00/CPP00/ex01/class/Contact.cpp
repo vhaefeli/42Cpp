@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:30:40 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/29 11:24:45 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:55:47 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ bool	Contact::setContact(int index)
 			if (this->_details[i].empty()) {
 				std::cout << "# Error: Empty field." << std::endl;
 			}
+			if (std::cin.fail())
+				break;
 		}
 	}
 	std::cout << "# Contact n°" << this->_details[0] << " added to phonebook.\n" << std::endl;
