@@ -6,11 +6,13 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:30:40 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/11/25 16:20:30 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2022/11/29 09:48:37 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+int	_NbDetails = 6;
 
 std::string Contact::_fields[_NbDetails] = {
 	"INDEX",
@@ -49,4 +51,14 @@ bool	setContact(int index){
 	}
 	std::cout << SC << "# Contact n°" << this->_index << " added to phonebook.\n" << std::endl;
 	return (true);
+}
+
+std::string	SizeTenString(std::string str)
+{
+	for (int i = 0, str[i] && i < 9)
+}
+
+void	showContactSmall()
+{
+
 }
