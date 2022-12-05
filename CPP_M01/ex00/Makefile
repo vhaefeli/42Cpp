@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2022/11/30 11:11:36 by vhaefeli         ###   ########.fr        #
+#    Updated: 2022/12/05 09:10:22 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,11 @@ TARGET		= zombie
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
-SRCS_DIR	= src
-CLASS_DIR	= class
+SRC_DIR	= src
 OBJS_DIR	= obj
-SRCS		= $(CLASS_DIR)/Zombie.cpp\
-				$(CLASS_DIR)/newZombie.cpp\
-				$(CLASS_DIR)/randomCHump.cpp\
+SRCS		= Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
 				main.cpp
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
