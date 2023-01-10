@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:14:26 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/12/02 18:58:21 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/10 11:07:33 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ Zombie::~Zombie( void )
 void	Zombie::announce( void )
 {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void	Zombie::setName(std::string name)
+{
+	this->_name = name;
 }

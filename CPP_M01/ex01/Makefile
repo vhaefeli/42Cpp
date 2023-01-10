@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2022/12/05 09:10:22 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/01/10 10:28:01 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,7 @@ CPPFLAGS	= -Iinclude
 SRC_DIR	= src
 OBJS_DIR	= obj
 SRCS		= Zombie.cpp \
-				newZombie.cpp \
-				randomChump.cpp \
+				zombieHorde.cpp \
 				main.cpp
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
