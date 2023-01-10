@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 11:11:45 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 15:47:24 by vhaefeli         ###   ########.fr       */
+/*   Created: 2022/11/30 10:31:19 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/01/10 15:51:38 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int main( void)
+# include <string>
+
+class Weapon
 {
-	int n = 6;
-	Zombie *zombies = zombieHorde(n, "Guillaume");
+	public:
 
-	for (int i(0); i < n; ++i)
-	{
-		zombies[i].announce();
-	}
-	delete[] zombies;
-}
+		Weapon(std::string type = "");
+
+		const std::string &getType();
+		void setType(std::string type);
+
+	private:
+
+		std::string	_type;
+};
+
+#endif
