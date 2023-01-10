@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 11:11:45 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 15:47:24 by vhaefeli         ###   ########.fr       */
+/*   Created: 2022/11/30 11:14:26 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/01/10 15:42:55 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int main( void)
+#include <iostream>
+
+HumanA::HumanA(std::string name, Weapon &w)
+	: name(name), weapon(w)
 {
-	int n = 6;
-	Zombie *zombies = zombieHorde(n, "Guillaume");
+}
 
-	for (int i(0); i < n; ++i)
-	{
-		zombies[i].announce();
-	}
-	delete[] zombies;
+void	HumanA::attack( void )
+{
+	std::cout << name << " attacks with their " << weapon.getType() << std::endl;
 }

@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/30 11:14:51 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/12/05 08:28:01 by vhaefeli         ###   ########.fr       */
+/*   Created: 2022/11/30 10:31:19 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/01/10 15:32:22 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-Zombie* newZombie(std::string name)
-{
-	return (new Zombie(name));
-}
+# include <string>
+# include "Weapon.hpp"
+
+class HumanB {
+	public:
+
+		HumanB(std::string name);
+
+		void	attack();
+		void	setWeapon(Weapon &w);
+
+	private:
+
+		std::string	name;
+		Weapon		*weapon;
+};
+
+#endif

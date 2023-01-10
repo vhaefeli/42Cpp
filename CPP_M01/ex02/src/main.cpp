@@ -6,20 +6,25 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 11:11:45 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 15:47:24 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/10 13:35:47 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include <string>
+#include <iostream>
 
 int main( void)
 {
-	int n = 6;
-	Zombie *zombies = zombieHorde(n, "Guillaume");
+	std::string brain = "HI THIS IS BRAIN";
+	std::string* stringPTR = &brain;
+	std::string& stringREF = brain;
 
-	for (int i(0); i < n; ++i)
-	{
-		zombies[i].announce();
-	}
-	delete[] zombies;
+	std::cout << "Memory address of string        : " << &brain << std::endl;
+	std::cout << "Memory address held by stringPTR: " << stringPTR << std::endl;
+	std::cout << "Memory address held by stringREF: " << &stringREF << std::endl;
+
+	std::cout << "Value of the string          : " << brain << std::endl;
+	std::cout << "Value pointed to by stringPTR: " << *stringPTR << std::endl;
+	std::cout << "Value pointed to by stringREF: " << stringREF << std::endl;
+	return (0);
 }

@@ -6,19 +6,17 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/10 10:28:01 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/01/10 13:37:58 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= zombie
+TARGET		= brain
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
-SRC_DIR	= src
+SRC_DIR		= src
 OBJS_DIR	= obj
-SRCS		= Zombie.cpp \
-				zombieHorde.cpp \
-				main.cpp
+SRCS		= main.cpp
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
@@ -45,6 +43,9 @@ fclean: clean
 	rm -f $(TARGET)
 
 re: fclean all
+
+run: all
+	@-./$(TARGET)
 
 $(OBJS_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJS_DIR)
 	$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) -o $@ $^

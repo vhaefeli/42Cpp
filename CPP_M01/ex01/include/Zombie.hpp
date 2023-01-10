@@ -6,12 +6,12 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:31:19 by vhaefeli          #+#    #+#             */
-/*   Updated: 2022/12/05 08:20:25 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:45:41 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 # include <string>
 
@@ -25,13 +25,13 @@ class Zombie {
 		~Zombie( void );
 
 		void	announce(void);
+		void	setName(std::string name);
 
 	private:
 
 		std::string	_name;
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif
