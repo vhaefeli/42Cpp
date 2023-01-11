@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:03:52 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 17:36:46 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:23:22 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class TextReplacer {
 
 	public:
 
-		// TextReplacer();
-		// ~TextReplacer();
+		TextReplacer();
+		~TextReplacer();
 
 		bool	read(std::string filename);
 

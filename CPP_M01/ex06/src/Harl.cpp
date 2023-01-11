@@ -6,14 +6,13 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:11:42 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/11 13:24:46 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:58:12 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-std::string	Harl::msgType[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-void (Harl::*Harl::_fcts[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}; //variable tableau de pointeurs sur fonctions ?
+std::string	Harl::_msgType[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 Harl::Harl()
 {
@@ -23,38 +22,52 @@ Harl::~Harl()
 {
 }
 
-void Harl::debug(void)
+void Harl::_debug(void)
 {
-	std::cout << "[ DEBUG ]" << std::endl
-	<< "I'm sur you can do better!" << std::endl;
+	std::cout << "I'm sure you can do better!" << std::endl;
 }
 
-void Harl::info(void)
+void Harl::_info(void)
 {
-	std::cout << "[ INFO ]" << std::endl
-	<< "Look all these informations there! something is not really right!" << std::endl;
+	std::cout << "Look all these informations there! something is not really right!" << std::endl;
 }
 
-void Harl::warning(void)
+void Harl::_warning(void)
 {
-	std::cout << "[ WARNING ]" << std::endl
-	<< "Are zou sure you don't want to correct it?" << std::endl;
+	std::cout << "Are you sure you don't want to correct it?" << std::endl;
 }
 
-void Harl::error(void)
+void Harl::_error(void)
 {
-	std::cout << "[ ERROR ]" << std::endl
-	<< "I told you! it won't be working! Correct the error!" << std::endl;
+	std::cout << "I told you! it won't be working! Correct the error!" << std::endl;
 }
 
 void Harl::complain(std::string level)
 {
-	for (int i(0); i < 4; i++)
+	int lvl = 0;
+
+	while (lvl < 4)
 	{
-		if (level == Harl::msgType[i])
+		if (level == Harl::_msgType[lvl])
 		{
-			(this->*(Harl::_fcts[i]))();
 			break ;
 		}
+		lvl++;
+	}
+	if (lvl == 4) 
+		lvl = -1;
+	switch (lvl) {
+		case -1:
+			std::cout << "[Probably complaining about insignificant problem]" << std::endl;
+			break;
+		case 0:
+			this->_debug();
+		case 1:
+			this->_info();
+		case 2:
+			this->_warning();
+		case 3:
+			this->_error();
+			break;
 	}
 }

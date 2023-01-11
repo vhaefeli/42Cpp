@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:03:25 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 17:41:17 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:23:14 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include <iostream>
 #include <iterator>
 
-// TextReplacer::TextReplacer()
-// {
-// }
+TextReplacer::TextReplacer()
+{
+}
 
-// TextReplacer::~TextReplacer()
-// {
-// }
+TextReplacer::~TextReplacer()
+{
+}
 
 bool	TextReplacer::read(std::string filename)
 {
