@@ -6,18 +6,18 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 17:50:59 by trossel           #+#    #+#              #
-#    Updated: 2023/01/10 19:25:29 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/01/11 12:53:56 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= newsed
+TARGET		= HarlFilter
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj
 SRCS		= main.cpp \
-			  TextReplacer.cpp \
+			  Harl.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 

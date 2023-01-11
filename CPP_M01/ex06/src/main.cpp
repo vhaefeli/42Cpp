@@ -5,32 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/31 11:38:51 by trossel           #+#    #+#             */
-/*   Updated: 2023/01/10 19:25:27 by vhaefeli         ###   ########.fr       */
+/*   Created: 2023/01/11 11:12:04 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/01/11 13:29:56 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TextReplacer.hpp"
-
-#include <fstream>
-#include <iostream>
+#include "Harl.hpp"
 
 int main(int argc, char **argv)
 {
-	TextReplacer	replacer;
-	std::string		filename;
+	Harl	harl;
+	int		level = 0;
 
-	if (argc != 4)
+	if (argc < 2) {std::cout << "minimum level needed" << std::endl;}
+
+	while (level < 4)
 	{
-		std::cerr << "Error: " << argv[0] << " needs the filename, the string to change and the new string" << std::endl;
-		return (1);
+		std::cout <<"a" << level << std::endl;
+		if (argv[1] == Harl::msgType[level])
+		{
+			break ;
+		}
+		level++;
 	}
-	filename = argv[1];
-	if (replacer.read(filename))
-		return (1);
-	if (replacer.replace(argv[2], argv[3]))
-		return (2);
-	if (replacer.write_to_file(filename.append(".replace")))
-		return (3);
+	while (level< 4)
+	{
+		std::cout << level << std::endl;
+		harl.complain(Harl::msgType[level]);
+		level++;
+	}
 	return (0);
 }

@@ -5,32 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/31 11:38:51 by trossel           #+#    #+#             */
-/*   Updated: 2023/01/10 19:25:27 by vhaefeli         ###   ########.fr       */
+/*   Created: 2023/01/11 11:12:04 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/01/11 12:44:07 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TextReplacer.hpp"
+#include "Harl.hpp"
 
-#include <fstream>
-#include <iostream>
-
-int main(int argc, char **argv)
+int main()
 {
-	TextReplacer	replacer;
-	std::string		filename;
+	Harl	harl;
 
-	if (argc != 4)
-	{
-		std::cerr << "Error: " << argv[0] << " needs the filename, the string to change and the new string" << std::endl;
-		return (1);
-	}
-	filename = argv[1];
-	if (replacer.read(filename))
-		return (1);
-	if (replacer.replace(argv[2], argv[3]))
-		return (2);
-	if (replacer.write_to_file(filename.append(".replace")))
-		return (3);
+	std::cout << "Debug message:" << std::endl;
+	harl.complain("DEBUG");
+
+	std::cout << std::endl << "Info message:" << std::endl;
+	harl.complain("INFO");
+
+	std::cout << std::endl << "Warning message:" << std::endl;
+	harl.complain("WARNING");
+
+	std::cout << std::endl << "Error message:" << std::endl;
+	harl.complain("ERROR");
+
+	std::cout << std::endl << "Other message:" << std::endl;
+	harl.complain("something else");
+
 	return (0);
 }
