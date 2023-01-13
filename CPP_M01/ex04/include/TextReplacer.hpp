@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:03:52 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/11 17:23:22 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:07:08 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class TextReplacer {
 
 	private:
 
-		std::string		_buffer;
+		std::string	_buffer;
 
 };
 

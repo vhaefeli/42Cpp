@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:11:42 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/11 16:58:12 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:14:10 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,8 @@ void Harl::complain(std::string level)
 		}
 		lvl++;
 	}
-	if (lvl == 4) 
-		lvl = -1;
-	switch (lvl) {
-		case -1:
-			std::cout << "[Probably complaining about insignificant problem]" << std::endl;
-			break;
+	switch (lvl)
+	{
 		case 0:
 			this->_debug();
 		case 1:
@@ -68,6 +64,9 @@ void Harl::complain(std::string level)
 			this->_warning();
 		case 3:
 			this->_error();
+			break;
+		default :
+			std::cout << "[Probably complaining about insignificant problem]" << std::endl;
 			break;
 	}
 }

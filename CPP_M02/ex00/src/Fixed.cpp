@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:25 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/12 22:39:33 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:48:32 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed & Fixed::operator=(const Fixed &f)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)
 	{
-		this->_raw = f.getRawBits(); // pourquoi faut/il passer par la fonction get? on ne peu pas juste mettre f._raw???
+		this->_raw = f.getRawBits(); // pourquoi faut-il passer par la fonction get? on ne peu pas juste mettre f._raw Parce que c'est + SOLID
 	}
 	return (*this);
 }

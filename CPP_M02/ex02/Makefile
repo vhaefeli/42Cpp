@@ -5,20 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/13 10:56:09 by vhaefeli         ###   ########.fr        #
+#    Created: 2023/01/12 16:17:44 by vhaefeli          #+#    #+#              #
+#    Updated: 2023/01/12 16:37:13 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= zombie
+TARGET		= Fixed
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
-SRC_DIR	= src
+SRC_DIR		= src
 OBJS_DIR	= obj
-SRCS		= Zombie.cpp \
-				zombieHorde.cpp \
-				main.cpp
+SRCS		= main.cpp \
+			  Fixed.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 

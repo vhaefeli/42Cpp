@@ -6,12 +6,13 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:25 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/13 09:18:31 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:07:36 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 	: _raw(0)
@@ -19,15 +20,16 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed(int const nbr)
-	: _raw(0)
+Fixed::Fixed(const int nbr)
+	: _raw(nbr << Fixed::_n_bits_frac)
 {
-
+	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed(float const nbr)
+Fixed::Fixed(const float nbr)
 {
-
+	this->_raw = roundf(nbr * (1 << Fixed::_n_bits_frac));
+	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &f)
@@ -53,22 +55,23 @@ Fixed::~Fixed()
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->_raw);
 }
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
+	// std::cout << "setRawBits member function called" << std::endl;
 	this->_raw = raw;
 }
 
-float	toFloat( void ) const
+float	Fixed::toFloat(void) const
 {
-
+	return ((float)this->_raw / (1 <<  Fixed::_n_bits_frac));
 }
-int		toInt( void ) const
-{
 
+int		Fixed::toInt(void) const
+{
+	return (this->_raw >> Fixed::_n_bits_frac);
 }
 
 std::ostream& operator<<(std::ostream& o, const Fixed &f)

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:54:38 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 15:42:34 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/13 11:01:51 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 
 Weapon::Weapon(std::string type)
 	: _type(type)
+{
+}
+
+Weapon::~Weapon(void)
 {
 }
 

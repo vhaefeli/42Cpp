@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:31:19 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/10 15:32:22 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:59:40 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class HumanB {
 	public:
 
 		HumanB(std::string name);
+		~HumanB(void);
 
 		void	attack();
 		void	setWeapon(Weapon &w);

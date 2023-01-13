@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 11:59:13 by vhaefeli          #+#    #+#              #
-#    Updated: 2022/12/05 09:10:22 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/01/13 10:54:21 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,9 @@ fclean: clean
 	rm -f $(TARGET)
 
 re: fclean all
+
+run: all
+	@-./$(TARGET)
 
 $(OBJS_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJS_DIR)
 	$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) -o $@ $^
