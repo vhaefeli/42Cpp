@@ -33,7 +33,7 @@ Fixed::Fixed(const float nbr)
 	// std::cout << "Float constructor called" << std::endl;
 }
 
-//***********constructeur de recopie  ?pourquoi ceci plutot que _raw(f.raw)?
+//***********constructeur de recopie
 Fixed::Fixed(const Fixed &f)
 {
 	// std::cout << "Copy constructor called" << std::endl;

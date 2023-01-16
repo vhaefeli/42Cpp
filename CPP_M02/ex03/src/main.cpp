@@ -6,28 +6,34 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/14 13:22:54 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/14 13:24:47 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
+
 #include <iostream>
 
-int main( void ) {
-	Fixed a;
-	const Fixed b( 10 );
-	const Fixed c( 42.42f );
-	const Fixed d( b );
-	
-	a = Fixed( 1234.4321f );
+int main(void)
+{
+	Point a(Fixed(0), Fixed(0));
+	Point b(Fixed(500), Fixed(0));
+	Point c(Fixed(500), Fixed(500));
+	Point p(Fixed(300), Fixed(195.4f));
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+	Fixed x, y;
+
+	x = a.getX(); y = a.getY();
+	std::cout << "A = (" << x << "," << y << ")" << std::endl;
+	x = b.getX(); y = b.getY();
+	std::cout << "B = (" << x << "," << y << ")" << std::endl;
+	x = c.getX(); y = c.getY();
+	std::cout << "C = (" << x << "," << y << ")" << std::endl;
+	x = p.getX(); y = p.getY();
+	std::cout << "P = (" << x << "," << y << ")" << std::endl;
+	if (bsp(a, b, c, p))
+		std::cout << "P is in triangle ABC" << std::endl;
+	else
+		std::cout << "P is NOT in triangle ABC" << std::endl;
+	return (0);
 }
