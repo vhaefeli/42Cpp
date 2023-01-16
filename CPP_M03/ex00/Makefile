@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/12 16:17:44 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/16 11:02:37 by vhaefeli         ###   ########.fr        #
+#    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
+#    Updated: 2023/01/16 13:24:50 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= bsp
+TARGET		= ClapTrap
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj
 SRCS		= main.cpp \
-				Fixed.cpp \
-				Point.cpp \
-				bsp.cpp
+			  ClapTrap.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 

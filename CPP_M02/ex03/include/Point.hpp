@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:44:09 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/14 13:24:42 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:02:23 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ class Point
 
 		Fixed	getX() const;
 		Fixed	getY() const;
-	
+
 	private:
 
-		const Fixed	_x;
-		const Fixed _y;
+		Fixed	_x; // nepeuvent pas etre const sinon l'operateur = ne fonctionne pas
+		Fixed	_y;
 
 };
 

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:50:02 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/14 13:26:44 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:01:45 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 Point::Point()
 	: _x(Fixed(0)), _y(Fixed(0))
 {
-	std::cout << "Default constructor called point" <<_x << "," << _y << std::endl;
+	std::cout << "Default constructor called point " <<_x << "," << _y << std::endl;
 }
 
 //constructeur avec position du point donnee
 Point::Point(const Fixed &x, const Fixed &y)
 	: _x(x), _y(y)
 {
-	std::cout << "Constructor called point" << _x << "," << _y << std::endl;
+	std::cout << "Constructor called point " << _x << "," << _y << std::endl;
 }
 
 //contructeur par copie
@@ -35,7 +35,7 @@ Point::Point(const Point &p)
 }
 
 //surcharge de l'operateur d'affectation
-Point & Point::operator=(const Point &p)
+Point &Point::operator=(const Point &p)
 {
 	if (this != &p)
 	{
@@ -51,12 +51,12 @@ Point::~Point()
 }
 
 //geteurs
-Point::Fixed	getX() const
+Fixed	Point::getX() const
 {
 	return (this->_x);
 }
 
-Point::Fixed	getY() const
+Fixed	Point::getY() const
 {
 	return (this->_y);
 }

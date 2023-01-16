@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/14 13:24:47 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:02:32 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
 	Point a(Fixed(0), Fixed(0));
 	Point b(Fixed(500), Fixed(0));
 	Point c(Fixed(500), Fixed(500));
-	Point p(Fixed(300), Fixed(195.4f));
+	Point p(Fixed(-300), Fixed(195.4f));
 
 	Fixed x, y;
 
