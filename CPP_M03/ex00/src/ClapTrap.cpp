@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/16 16:27:56 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:52:44 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap()
 	std::cout << "Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string	name)
+ClapTrap::ClapTrap(const std::string	&name)
 	: _name (name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "Constructor called for " << _name << std::endl;
@@ -51,17 +51,16 @@ ClapTrap::~ClapTrap()
 
 std::string ClapTrap::getName(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_raw);
+	std::cout << "getName member function called" << std::endl;
+	return (this->_name);
 }
 
 void ClapTrap::attack(const std::string& target)
 {
 	if (_energyPoints > 0 && _hitPoints > 0)
 	{
-		target.takeDamage(_attackDamage);
 		_energyPoints--;
-		std::cout << "ClapTrap " << target << " attacks " << target.getName()
+		std::cout << "ClapTrap " << _name << " attacks " << target
 		<< " causing " << _attackDamage << " points of damage!" << std::endl;
 	}
 	else
@@ -70,13 +69,13 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_hitPoints = 0)
+	if (_hitPoints == 0)
 	{
 		std::cout << "ClapTrap '" << _name << "' is already dead and cannot take"
 			" damage anymore." << std::endl;
 		return ;
 	}
-	if (amount >= _hitPoint)
+	if (amount >= _hitPoints)
 	{
 		_hitPoints = 0;
 		std::cout << "Aie! ClapTrap '" << _name << "' is dead" << std::endl;
@@ -84,12 +83,26 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 	_hitPoints -= amount;
 	std::cout << "ClapTrap '" << _name << "' takes " << amount << " points"
-		" of damage (live left: " << _hitPoints << "!" << std::endl;
+		" of damage (live left: " << _hitPoints << "!)" << std::endl;
 		return ;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-
+	if (_hitPoints == 0)
+	{
+		std::cout << "ClapTrap '" << _name << "' is already dead and can no longer heal himself." << std::endl;
+		return ;
+	}
+	if (_energyPoints == 0)
+	{
+		std::cout << "ClapTrap '" << _name << "' is too weak and can no longer heal himself." << std::endl;
+		return ;
+	}
+	_energyPoints--;
+	_hitPoints += amount;
+	std::cout << "ClapTrap '" << _name << "' heal himself and regain " << amount << " points"
+		" of life (live left: " << _hitPoints << "!" << std::endl;
+	return ;
 }
 
