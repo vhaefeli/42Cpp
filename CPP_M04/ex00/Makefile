@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/18 16:47:25 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/01/18 17:43:14 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRCS		= main.cpp \
 			  Animal.cpp \
 			  Cat.cpp \
 			  Dog.cpp \
+			  WrongAnimal.cpp \
+			  WrongCat.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
