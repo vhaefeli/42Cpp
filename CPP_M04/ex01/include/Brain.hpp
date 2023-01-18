@@ -1,0 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/18 17:46:58 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/01/18 18:09:48 by vhaefeli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <string>
+#include <iostream>
+
+#ifndef		BRAIN_HPP
+# define	BRAIN_HPP
+
+class Brain
+{
+	protected:
+
+		std::string		_ideas [100];
+
+	public:
+
+		Brain();
+		Brain(const std::string	type);
+		Brain(const Brain &a);
+		Brain &operator=(const Brain &a);
+		virtual ~Brain();
+
+};
+
+#endif
