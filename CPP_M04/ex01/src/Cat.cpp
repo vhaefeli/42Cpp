@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:23:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 13:22:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:32:58 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ Cat & Cat::operator=(const Cat &c)
 	if (this != &c)
 	{
 		Animal::operator=(c);
+		// if (this->_catsBrain)
+		// 	delete (this->_catsBrain);
+		this->_catsBrain = new Brain(*c._catsBrain);
 	}
 	return (*this);
 }
@@ -48,13 +51,7 @@ void Cat::makeSound() const
 	std::cout << "'Miaaaouuuu'" << std::endl;
 }
 
-void Cat::setIdea(const std::string &newidea, int j)
+Brain & Cat::getBrain()
 {
-	this->_catsBrain->setIdea(newidea,j);
-}
-
-
-const std::string	&Cat::getIdea(int i) const
-{
-	this->_catsBrain->getIdea(i);
+	return (*_catsBrain);
 }

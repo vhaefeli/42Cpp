@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:17:04 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 14:18:51 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:35:07 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ class Cat : virtual public Animal
 
 		void makeSound() const;
 
-		virtual const std::string	&getIdea(int i) const;
-		virtual void setIdea(const std::string &newidea, int j);
+		Brain &getBrain();
 };
 
 #endif

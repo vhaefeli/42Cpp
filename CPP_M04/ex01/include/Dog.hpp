@@ -35,8 +35,7 @@ class Dog : public virtual Animal
 
 		void makeSound() const;
 
-		virtual const std::string	&getIdea(int i) const;
-		virtual void setIdea(const std::string &newidea, int j);
+		Brain &getBrain();
 };
 
 #endif

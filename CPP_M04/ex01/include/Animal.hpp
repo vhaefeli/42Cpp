@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 14:18:04 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:32:45 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@ class Animal
 
 		virtual std::string getType() const;
 		virtual void makeSound() const;
-
-		virtual void putOneIdea(const std::string &newidea, int j);
-		virtual void readOneIdea(int i) const;
+		virtual Brain &getBrain();
 
 };
 

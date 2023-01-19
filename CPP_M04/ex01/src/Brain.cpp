@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 12:37:12 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 15:58:55 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Brain::~Brain()
 
 void Brain::setIdea(const std::string &newidea, int j)
 {
-	if (i < 0 || i >= 100)
+	if (j < 0 || j >= 100)
 	{
 		std::cout << "Brain isn't big choose between 0 to 99" << std::endl;
 		return ;
@@ -52,12 +52,12 @@ void Brain::setIdea(const std::string &newidea, int j)
 }
 
 
-const std::string	&Brain::getIdea(int i) const
+const std::string	Brain::getIdea(int i) const
 {
 	if (i < 0 || i >= 100)
 	{
 		std::cout << "Brain isn't big choose between 0 to 99" << std::endl;
-		return ;
+		return "";
 	}
 	return (this->_ideas[i]);
 }
