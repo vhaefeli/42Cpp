@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 13:23:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 18:02:17 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:22:09 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,15 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
 	std::cout << "'Miaaaouuuu'" << std::endl;
+}
+
+void Cat::setIdea(const std::string &newidea, int j)
+{
+	this->_catsBrain->setIdea(newidea,j);
+}
+
+
+const std::string	&Cat::getIdea(int i) const
+{
+	this->_catsBrain->getIdea(i);
 }

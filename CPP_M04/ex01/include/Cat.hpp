@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:17:04 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 18:04:08 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:18:51 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Cat : virtual public Animal
 {
 	private:
 
@@ -36,6 +36,9 @@ class Cat : public Animal
 		virtual ~Cat();
 
 		void makeSound() const;
+
+		virtual const std::string	&getIdea(int i) const;
+		virtual void setIdea(const std::string &newidea, int j);
 };
 
 #endif

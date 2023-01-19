@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:46:58 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 18:09:48 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 13:05:07 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Brain
 {
-	protected:
+	private:
 
 		std::string		_ideas [100];
 
@@ -29,6 +29,9 @@ class Brain
 		Brain(const Brain &a);
 		Brain &operator=(const Brain &a);
 		virtual ~Brain();
+
+		const std::string	&getIdea(int i) const;
+		void setIdea(const std::string &newidea, int j);
 
 };
 

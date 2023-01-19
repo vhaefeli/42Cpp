@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 17:13:44 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:18:43 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,15 @@ std::string Animal::getType() const
 void Animal::makeSound() const
 {
 	std::cout << "'bip bip'" << std::endl;
+}
+
+void Animal::setIdea(const std::string &newidea, int j)
+{
+	this->_brain->setIdea(newidea,j);
+}
+
+
+const std::string	&Animal::getIdea(int i) const
+{
+	this->_brain->getIdea(i);
 }
