@@ -6,30 +6,33 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/17 13:42:21 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/20 17:57:44 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 
-int main( void ) {
-	ClapTrap	Victor("Victor");
-	ClapTrap	Merlin("Merlin");
-	ScavTrap	Ludivine("Ludivine");
-
-	Victor.attack("Merlin");
-	Merlin.takeDamage(8);
-	Merlin.attack("Victor");
-	Victor.takeDamage(15);
-	Merlin.beRepaired(5);
-	Merlin.attack("Ludivine");
-	Ludivine.takeDamage(0);
-	Ludivine.attack("Merlin");
-	Ludivine.guardGate();
-	ClapTrap	Gost(Victor);
-	for(int i(0); i < 51; i++)
-		Ludivine.attack("gost of Victor");
+int main( void )
+{
+	try
+	{
+		Bureaucrat Bob("Bob", 50);
+		Bureaucrat Luc("Luc", 151);
+		Bureaucrat Anna("Anna", 2);
+		std::cout << Anna << " will be promoted" << std::endl;
+		Anna.promote();
+		std::cout << Anna << " just get promoted" << std::endl;
+		Anna.promote();
+		std::cout << Anna << " just get promoted" << std::endl;
+	}
+	catch(const Bureaucrat::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const Bureaucrat::GradeTooLowException& e)
+	{
+		std::cerr << e.what()  << std::endl;
+	}
 	return 0;
 }
