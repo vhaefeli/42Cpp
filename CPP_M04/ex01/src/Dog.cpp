@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 17:01:51 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:31:34 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Dog::Dog(const Dog &c)
 
 {
 	std::cout << "Copy constructor Dog called" << std::endl;
+	this->_dogsBrain = new Brain();
 	*this = c;
 }
 
@@ -33,9 +34,7 @@ Dog & Dog::operator=(const Dog &c)
 	if (this != &c)
 	{
 		Animal::operator=(c);
-		if (this->_dogsBrain)
-			delete (this->_dogsBrain);
-		this->_dogsBrain = new Brain(*c._dogsBrain);
+		*(this->_dogsBrain) = *(c._dogsBrain); // copie en profondeur
 	}
 	return (*this);
 }

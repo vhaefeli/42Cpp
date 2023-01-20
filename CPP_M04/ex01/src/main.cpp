@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 11:57:44 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:43:25 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,25 @@ int main( void )
 	i = c;
 	std::cout << std::endl;
 	std::cout << "has the cat i has still 2 ideas: " << i.getBrain().getIdea(2) << std::endl;
+	std::cout << std::endl;
 	std::cout << "the " << i.getType() << " makes ";
 	i.makeSound();
 	std::cout << "the " << c.getType() << " makes ";
 	c.makeSound();
-
 	std::cout << "the " << j->getType() << " makes ";
 	j->makeSound();
 	std::cout << "the " << meta->getType() << " makes ";
 	meta->makeSound();
 	std::cout << "the " << k->getType() << " makes ";
 	k->makeSound();
+	std::cout << std::endl;
 
 	delete meta;
+	std::cout << std::endl;
 	delete j;
+	std::cout << std::endl;
 	delete k;
-
+	std::cout << std::endl;
 
 	return 0;
 }
