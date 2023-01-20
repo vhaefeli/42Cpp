@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 15:32:45 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/20 10:44:20 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 	protected:
 
 		std::string		_type;
-		Brain			*_brain;
+		// Brain			*_brain;
 
 	public:
 
@@ -34,7 +34,7 @@ class Animal
 
 		virtual std::string getType() const;
 		virtual void makeSound() const;
-		virtual Brain &getBrain();
+		// virtual Brain &getBrain();
 
 };
 

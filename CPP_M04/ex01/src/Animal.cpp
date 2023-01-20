@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 15:45:31 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/20 10:44:41 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void Animal::makeSound() const
 	std::cout << "'bip bip'" << std::endl;
 }
 
-Brain & Animal::getBrain()
-{
-	return (*_brain);
-}
+// Brain & Animal::getBrain()
+// {
+// 	return (*_brain);
+// }
