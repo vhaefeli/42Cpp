@@ -6,17 +6,17 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/24 12:43:24 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:32:09 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-#include "Form.hpp"
 
 #ifndef		BUREAUCRAT_HPP
 # define	BUREAUCRAT_HPP
 
+class Form;
 
 class Bureaucrat
 {
@@ -52,7 +52,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		promote();
 		void		demote();
-		void		signFrom(Form i);
+		void		signForm(Form &f);
 
 };
 

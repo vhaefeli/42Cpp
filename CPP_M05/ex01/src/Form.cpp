@@ -6,30 +6,31 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 09:21:34 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:20:10 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form()
-	: _name ("000"), _grade(150)
+	: _name ("000"), _isSigned(0), _minGradeSignature(150), _minGradeExecution(150)
 {
 	std::cout << "Form Default constructor called" << std::endl;
 }
 
 Form::Form(const std::string name, int minGradeSignature, int minGradeExecution)
-	: _name (name), _minGradeSignature(minGradeSignature), _minGradeExecution(minGradeExecution), _isSigned(0)
+	: _name (name), _isSigned(0), _minGradeSignature(minGradeSignature), _minGradeExecution(minGradeExecution)
 {
 	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature" << _minGradeSignature;
 	std::cout << " Minimal Grade for Execution" << _minGradeExecution << std::endl;
-
 }
 
 Form::Form(const Form &f)
+	: _name(f._name)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = friend;
+	*this = f;
 }
 
 Form & Form::operator=(const Form &f)
@@ -37,7 +38,6 @@ Form & Form::operator=(const Form &f)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)
 	{
-		this->_name =f._name;
 		this->_isSigned = f._isSigned;
 		this->_minGradeSignature = f._minGradeSignature;
 		this->_minGradeExecution = f._minGradeExecution;
@@ -65,26 +65,24 @@ int Form::getMinGradeExecution(void) const
 	return (this->_minGradeExecution);
 }
 
-void	Form::beSigned(bureaucrat &b)
+void	Form::beSigned(Bureaucrat &b)
 {
-	if (b.GetGrade <= this->_minGradeSignature)
+	if (b.getGrade() <= this->_minGradeSignature)
 	{
-		if 		this->_isSigned == 0
-		{
+		if (this->_isSigned == 0)
 			this->_isSigned = 1;
-			std::cout << b.getName << " signed " << this->_name << "." << std::endl;
 		else
 			std::cout << "the form is already signed" << std::endl;
 	}
 	else
-	
 		throw GradeTooLowException();
 }
 
 
-std::ostream& operator<<(std::ostream& o, const Form &b)
+std::ostream& operator<<(std::ostream& o, const Form &f)
 {
-	o << b.getName() << ", bureaucrat grade " << b.getGrade();
+	o << f.getName() << " Grade minimal to be allowed to signed the form :" << f.getMinGradeSignature()
+	 << " Grade minimal to be allowed to exectute the form :" << f.getMinGradeExecution();
 	return (o);
 }
 
@@ -95,5 +93,5 @@ const char * Form::GradeTooHighException::what() const throw ()
 
 const char * Form::GradeTooLowException::what() const throw ()
 {
-	return ("his grade is too low to be allowed to signed this form.");
+	return ("grade is too low.");
 }

@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/20 17:45:36 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/01/25 10:59:16 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC_DIR		= src
 OBJS_DIR	= obj
 SRCS		= main.cpp \
 			  Bureaucrat.cpp \
+			  Form.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
