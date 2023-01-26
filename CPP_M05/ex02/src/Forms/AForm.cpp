@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 15:08:11 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/26 21:47:10 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AFrom.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form()
+AFrom::AFrom()
 	: _name ("000"), _isSigned(0), _minGradeSignature(150), _minGradeExecution(150)
 {
-	std::cout << "Form Default constructor called" << std::endl;
+	std::cout << "AFrom Default constructor called" << std::endl;
 }
 
-Form::Form(const std::string name, int minGradeSignature, int minGradeExecution)
+AFrom::AFrom(const std::string name, int minGradeSignature, int minGradeExecution)
 	: _name (name), _isSigned(0), _minGradeSignature(minGradeSignature), _minGradeExecution(minGradeExecution)
 {
 	if (_minGradeSignature < 1 || _minGradeExecution < 1)
@@ -36,14 +36,14 @@ Form::Form(const std::string name, int minGradeSignature, int minGradeExecution)
 	std::cout << " Minimal Grade for Execution" << _minGradeExecution << std::endl;
 }
 
-Form::Form(const Form &f)
+AFrom::AFrom(const AFrom &f)
 	: _name(f._name)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = f;
 }
 
-Form & Form::operator=(const Form &f)
+AFrom & AFrom::operator=(const AFrom &f)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)
@@ -55,27 +55,27 @@ Form & Form::operator=(const Form &f)
 	return (*this);
 }
 
-Form::~Form()
+AFrom::~AFrom()
 {
-	std::cout << "Form '" << _name << "' destructed" << std::endl;
+	std::cout << "AFrom '" << _name << "' destructed" << std::endl;
 }
 
-const std::string Form::getName(void) const
+const std::string AFrom::getName(void) const
 {
 	return (this->_name);
 }
 
-int Form::getMinGradeSignature(void) const
+int AFrom::getMinGradeSignature(void) const
 {
 	return (this->_minGradeSignature);
 }
 
-int Form::getMinGradeExecution(void) const
+int AFrom::getMinGradeExecution(void) const
 {
 	return (this->_minGradeExecution);
 }
 
-void	Form::beSigned(Bureaucrat &b)
+void	AFrom::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() <= this->_minGradeSignature)
 	{
@@ -89,19 +89,19 @@ void	Form::beSigned(Bureaucrat &b)
 }
 
 
-std::ostream& operator<<(std::ostream& o, const Form &f)
+std::ostream& operator<<(std::ostream& o, const AFrom &f)
 {
 	o << f.getName() << " Grade minimal to be allowed to signed the form :" << f.getMinGradeSignature()
 	 << " Grade minimal to be allowed to exectute the form :" << f.getMinGradeExecution();
 	return (o);
 }
 
-const char * Form::GradeTooHighException::what() const throw ()
+const char * AFrom::GradeTooHighException::what() const throw ()
 {
 	return ("grade is too hight.");
 }
 
-const char * Form::GradeTooLowException::what() const throw ()
+const char * AFrom::GradeTooLowException::what() const throw ()
 {
 	return ("grade is too low.");
 }

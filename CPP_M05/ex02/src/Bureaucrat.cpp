@@ -6,11 +6,11 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 15:10:13 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/26 21:42:01 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AFrom.hpp"
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
@@ -76,14 +76,14 @@ void	Bureaucrat::demote()
 		throw GradeTooLowException();
 }
 
-void		Bureaucrat::signForm(Form &f)
+void		Bureaucrat::signForm(AFrom &f)
 {
 	try
 	{
 		f.beSigned(*this);
 		std::cout << *this << " signed " << f <<std::endl;
 	}
-	catch(const Form::GradeTooLowException& e)
+	catch(const AFrom::GradeTooLowException& e)
 	{
 		std::cout << *this << " couldn't sign " << f << " because ";
 		std::cout << e.what() << std::endl;
