@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:20:12 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/30 13:22:35 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:12:25 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,3 +87,5 @@ class AForm
 std::ostream &operator<<(std::ostream &o, const AForm &f);
 
 #endif
+
+// children classes: PresidentialPardonForm, RobotomyRequestForm, ShrubberyCreationForm

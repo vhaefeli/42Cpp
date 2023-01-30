@@ -6,14 +6,15 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:55:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/30 13:07:13 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:10:54 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
-#include "AForm.hpp"
+//mother class
+# include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm
 {
