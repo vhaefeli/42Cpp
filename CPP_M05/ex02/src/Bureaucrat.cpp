@@ -6,11 +6,11 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/26 21:42:01 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/27 17:00:27 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AFrom.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
@@ -76,14 +76,14 @@ void	Bureaucrat::demote()
 		throw GradeTooLowException();
 }
 
-void		Bureaucrat::signForm(AFrom &f)
+void		Bureaucrat::signForm(AForm &f)
 {
 	try
 	{
 		f.beSigned(*this);
 		std::cout << *this << " signed " << f <<std::endl;
 	}
-	catch(const AFrom::GradeTooLowException& e)
+	catch(const AForm::GradeTooLowException& e)
 	{
 		std::cout << *this << " couldn't sign " << f << " because ";
 		std::cout << e.what() << std::endl;
@@ -105,4 +105,28 @@ const char * Bureaucrat::GradeTooHighException::what() const throw ()
 const char * Bureaucrat::GradeTooLowException::what() const throw ()
 {
 	return ("grade is too low.");
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	if (!form.getSignedStatus())
+	{
+		std::cout << "The form " << form << " isn't signed yet." <<std::endl;
+		return;
+	}
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executed " << form <<std::endl;
+	}
+	catch(const AForm::FormNotSignedException& e)
+	{
+		std::cout << *this << " couldn't execute " << form << " because ";
+		std::cout << e.what() << std::endl;
+	}
+	catch(const AForm::GradeTooLowException& e)
+	{
+		std::cout << *this << " couldn't execute " << form << " because ";
+		std::cout << e.what() << std::endl;
+	}
 }

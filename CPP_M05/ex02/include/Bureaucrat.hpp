@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 11:32:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/27 15:47:15 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #ifndef		BUREAUCRAT_HPP
 # define	BUREAUCRAT_HPP
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -52,7 +52,8 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		promote();
 		void		demote();
-		void		signForm(Form &f);
+		void		signForm(AForm &f);
+		void		executeForm(AForm const & form);
 
 };
 

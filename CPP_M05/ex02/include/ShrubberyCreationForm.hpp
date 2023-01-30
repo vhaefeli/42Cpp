@@ -6,11 +6,11 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:18:34 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/26 22:28:33 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/28 01:39:48 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public AForm
 			ShrubberyCreationForm &operator=(const ShrubberyCreationForm &f);
 			~ShrubberyCreationForm();
 
-			virtual void		execute(Bureaucrat const & executor) const;
+			virtual void		doExecution() const;
 
 };
 

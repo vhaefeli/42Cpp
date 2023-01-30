@@ -6,20 +6,20 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/26 21:47:10 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/28 01:59:05 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AFrom.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AFrom::AFrom()
+AForm::AForm()
 	: _name ("000"), _isSigned(0), _minGradeSignature(150), _minGradeExecution(150)
 {
-	std::cout << "AFrom Default constructor called" << std::endl;
+	std::cout << "AForm Default constructor called" << std::endl;
 }
 
-AFrom::AFrom(const std::string name, int minGradeSignature, int minGradeExecution)
+AForm::AForm(const std::string name, int minGradeSignature, int minGradeExecution)
 	: _name (name), _isSigned(0), _minGradeSignature(minGradeSignature), _minGradeExecution(minGradeExecution)
 {
 	if (_minGradeSignature < 1 || _minGradeExecution < 1)
@@ -32,18 +32,18 @@ AFrom::AFrom(const std::string name, int minGradeSignature, int minGradeExecutio
 		std::cout << " Grade must be between 1 (highest) and 150 (lowest)" << std::endl;
 		throw GradeTooLowException();
 	}
-	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature" << _minGradeSignature;
-	std::cout << " Minimal Grade for Execution" << _minGradeExecution << std::endl;
+	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature " << _minGradeSignature;
+	std::cout << " Minimal Grade for Execution " << _minGradeExecution << std::endl;
 }
 
-AFrom::AFrom(const AFrom &f)
+AForm::AForm(const AForm &f)
 	: _name(f._name)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = f;
 }
 
-AFrom & AFrom::operator=(const AFrom &f)
+AForm & AForm::operator=(const AForm &f)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)
@@ -55,53 +55,56 @@ AFrom & AFrom::operator=(const AFrom &f)
 	return (*this);
 }
 
-AFrom::~AFrom()
+AForm::~AForm()
 {
-	std::cout << "AFrom '" << _name << "' destructed" << std::endl;
+	std::cout << "AForm '" << _name << "' destructed" << std::endl;
 }
 
-const std::string AFrom::getName(void) const
+const std::string& AForm::getName(void) const
 {
 	return (this->_name);
 }
 
-int AFrom::getMinGradeSignature(void) const
+int AForm::getMinGradeSignature(void) const
 {
 	return (this->_minGradeSignature);
 }
 
-int AFrom::getMinGradeExecution(void) const
+int AForm::getMinGradeExecution(void) const
 {
 	return (this->_minGradeExecution);
 }
 
-void	AFrom::beSigned(Bureaucrat &b)
+bool AForm::getSignedStatus(void) const
+{
+	return (this->_isSigned);
+}
+
+void	AForm::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() <= this->_minGradeSignature)
 	{
 		if (this->_isSigned == 0)
 			this->_isSigned = 1;
 		else
-			std::cout << "the form is already signed" << std::endl;
+			throw FormAlreadySignedException();
 	}
 	else
 		throw GradeTooLowException();
 }
 
-
-std::ostream& operator<<(std::ostream& o, const AFrom &f)
+void	AForm::execute(const Bureaucrat &executor) const
 {
-	o << f.getName() << " Grade minimal to be allowed to signed the form :" << f.getMinGradeSignature()
-	 << " Grade minimal to be allowed to exectute the form :" << f.getMinGradeExecution();
+	if (!_isSigned)
+		throw FormNotSignedException();
+	if (executor.getGrade() > this->_minGradeExecution)
+		throw GradeTooLowException();
+	doExecution();
+}
+
+std::ostream& operator<<(std::ostream& o, const AForm &f)
+{
+	o << f.getName() << " Minimal Grade for Signature :" << f.getMinGradeSignature()
+	 << " Minimal Grade for Execution:" << f.getMinGradeExecution();
 	return (o);
-}
-
-const char * AFrom::GradeTooHighException::what() const throw ()
-{
-	return ("grade is too hight.");
-}
-
-const char * AFrom::GradeTooLowException::what() const throw ()
-{
-	return ("grade is too low.");
 }

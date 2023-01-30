@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:00:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/26 22:30:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/01/28 01:39:42 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &f)
-	: AForm(f.getName, 145, 137), _target(f._target)
+	: AForm(f.getName(), 145, 137), _target(f._target)
 {
 	*this = f;
 }
@@ -37,23 +37,22 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "From '" << _name << "' destructed" << std::endl;
+	std::cout << "Form '" << this->getName() << "' destructed" << std::endl;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::doExecution() const
 {
+		std::ofstream os(_target + "_shrubbery");
 
-	std::ofstream os(_target + "_shrubbery");
-
-	os << "                                  /\ " << std::endl;
-	os << "          %%%,%%%%%%%          o8   8 oo" << std::endl;
-	os << "          ,'%% \\-*%%%%%%%    .88  8   88o" << std::endl;
-	os << "     ;%%%%%*%   _%%%%      ..oo8 0 o o 88.. " << std::endl;
-	os << "      ,%%%       \(_.*%%%%..oo88\ \ oo / /.." << std::endl;
-	os << "      % *%%, ,%%%%*(    '    .oo88 o. oo88" << std::endl;
-	os << "    %^     ,*%%% )\|,%%*%,_     88 \//" << std::endl;
-	os << "        *%    \/ #).-*%%*         ) \ *%," << std::endl;
-	os << "            _.) ,/ *%,            )#( " << std::endl;
-	os << "             /)#( " << std::endl;
-	os.close();
+		os << "                                  /\\ " << std::endl;
+		os << "          %%%,%%%%%%%          o8   8 oo" << std::endl;
+		os << "          ,'%% \\-*%%%%%%%    .88  8   88o" << std::endl;
+		os << "     ;%%%%%*%   _%%%%      ..oo8 0 o o 88.. " << std::endl;
+		os << "      ,%%%       \\(_.*%%%%..oo88\\ oo / /.." << std::endl;
+		os << "      % *%%, ,%%%%*(    '    .oo88 o. oo88" << std::endl;
+		os << "    %^     ,*%%% )\\|,%%*%,_     88 \\//" << std::endl;
+		os << "        *%    \\/ #).-*%%*         ) \\ *%," << std::endl;
+		os << "            _.) ,/ *%,             )#( " << std::endl;
+		os << "             /)#( " << std::endl;
+		os.close();
 }	
