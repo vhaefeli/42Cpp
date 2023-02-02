@@ -6,18 +6,18 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:31:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/01 19:02:16 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:33:51 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <cctype>
-#include <iomanip>
+// #include <cctype>
+// #include <iomanip>
 #include <iostream>
-#include <limits>
-#include <sstream>
-#include <climits>
-#include <cmath>
+// #include <limits>
+// #include <sstream>
+// #include <climits>
+// #include <cmath>
 #include <float.h>
 
 ScalarConverter::ScalarConverter()
@@ -38,7 +38,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &sc)
 
 ScalarConverter::~ScalarConverter()
 {
-	
+
 }
 
 void ScalarConverter::convert(const char *src)
@@ -56,7 +56,7 @@ void ScalarConverter::convert(const char *src)
 		else
 			minmax = 1;
 	}
-	// Char
+// Char
 	std::cout << "cast in string is: ";
 	if (d > 32 && d < 127)
 	{
@@ -65,15 +65,15 @@ void ScalarConverter::convert(const char *src)
 	}
 	else
 		std::cout << "not defined" << std::endl;
-	// int
+// int
 	std::cout << "cast in int is: ";
 	if (minmax == -1 || d < INT_MIN)
 	{
-		std::cout << "smaller than int min" << std::endl;
+		std::cout << "smaller than int min " << INT_MIN << std::endl;
 	}
 	else if (minmax == 1 || d > INT_MAX)
 	{
-		std::cout << "bigger than int max" << std::endl;
+		std::cout << "bigger than int max " << INT_MAX << std::endl;
 	}
 	else
 	{
@@ -83,28 +83,42 @@ void ScalarConverter::convert(const char *src)
 			i = static_cast<int>(d);
 		std::cout << i << std::endl;
 	}
-	// float
+// float
 	std::cout << "cast in float is: ";
-	if (minmax == -1 || d < FLT_MIN)
+	if (minmax == -1)
 	{
-		std::cout << "smaller than int min" << std::endl;
+		std::cout << "smaller than float min " << FLT_MIN << std::endl;
 	}
 	else if (minmax == 1 || d > FLT_MAX)
 	{
-		std::cout << "bigger than int max" << std::endl;
+		std::cout << "bigger than float max " << FLT_MAX << std::endl;
 	}
 	else
 	{
 		if (isalpha(src[0]))
-			i = static_cast<int>(src[0]);
+			f = static_cast<float>(src[0]);
 		else
-			i = static_cast<int>(d);
-		std::cout << i << std::endl;
+			f = static_cast<float>(d);
+		std::cout << f;
+		if (f - i == 0)
+			std::cout << ".0";
+		std::cout << "f" << std::endl;
 	}
-		i = static_cast<int>(d);
-	std::cout << "cast in int is: " << i << std::endl;
-	f = static_cast<float>(d);
-	std::cout << "cast in float is: " << f << std::endl;
-	d = static_cast<double>(d);
-	std::cout << "cast in double is: " << d << std::endl;
+// double
+	std::cout << "cast in double is: ";
+	if (minmax == -1)
+	{
+		std::cout << "smaller than double min" << DBL_MIN << std::endl;
+	}
+	else if (minmax == 1)
+	{
+		std::cout << "bigger than double max" << DBL_MAX << std::endl;
+	}
+	else
+	{
+		std::cout << d;
+		if (d - i == 0)
+			std::cout << ".0";
+		std::cout << std::endl;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 19:54:10 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/01 17:49:14 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/02 10:45:19 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter &sc);
 		ScalarConverter &operator=(const ScalarConverter &sc);
 		~ScalarConverter();
-		
-		void convert(const std::string &);
+
+		void convert(const char *src);
 };
 
 #endif
