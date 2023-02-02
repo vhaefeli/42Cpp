@@ -6,13 +6,14 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:31:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/02 11:44:06 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:46:48 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iostream>
 #include <float.h>
+#include <string>
 
 ScalarConverter::ScalarConverter()
 {
@@ -35,86 +36,159 @@ ScalarConverter::~ScalarConverter()
 
 }
 
-void ScalarConverter::convert(const char *src)
+static int	checkFloat(std::string str)
 {
-	char	c;
-	int		i;
-	float	f;
-	double	d;
-	int		minmax = 0;
-	d = atof(src);
-	if (d == -1 && src[3])
+	int comma = 0;
+	if (str == "-inff" || str == "+inff" || str == "nanf")
+		return 1;
+	if (str.back() == 'f')
 	{
-		if (src[0] == '-')
-			minmax = -1;
-		else
-			minmax = 1;
+		str.back() = '0';
+		if (str.at(0) == '+' || str.at(0) == '-')
+			str.at(0) = '0';
+		for (unsigned long i = 0; i < str.length(); i++)
+		{
+			if (str.at(i) == '.')
+			{
+				if (comma == 0)
+				{
+					comma = 1;
+					i++;
+				}
+				else
+					return 0;
+			}
+			if (str.at(i) < 48 || str.at(i) > 57)
+				return 0;
+		}
+		return 1;
 	}
-	if (d == 0 && src[0] != '0' && !src[1])
-		d = static_cast<double>(src[0]);
-// Char
+	return 0;
+}
+
+static int	checkInt(std::string str)
+{
+	if (str.at(0) == '+' || str.at(0) == '-')
+		str.at(0) = '0';
+	for (unsigned long i = 0; i < str.length(); i++)
+	{
+		if (str.at(i) < 48 || str.at(i) > 57)
+			return 0;
+	}
+	return 1;
+}
+
+static int	checkDouble(std::string str)
+{
+	int comma = 0;
+
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		return 1;
+	if (str.at(0) == '+' || str.at(0) == '-')
+		str.at(0) = '0';
+	for (unsigned long i = 0; i < str.length(); i++)
+	{
+		if (str.at(i) == '.')
+		{
+			if (comma == 0)
+			{
+				comma = 1;
+				i++;
+			}
+			else
+				return 0;
+		}
+		if (str.at(i) < 48 || str.at(i) > 57)
+			return 0;
+	}
+	return 1;
+}
+
+void ScalarConverter::checktype(const char *src)
+{
+	std::string str;
+
+	str = src;
+	if (checkInt(str))
+		this->_type = INT;
+	else if (checkFloat(str))
+		this->_type = FLOAT;
+	else if (checkDouble(str))
+		this->_type = DOUBLE;
+	else if (str.length() == 1)
+		this->_type = CHAR;
+	else
+		this->_type = UNKNOWN;
+
+}
+
+void	ScalarConverter::convert(const char *src)
+{
+	std::string str;
+	str = src;
+	this->checktype(src);
+	switch(_type)
+	{
+		case UNKNOWN:
+			std::cout << "please put one and only one argument a character, a int, a float or a double" << std::endl;
+			return ;
+
+		case CHAR:
+			this->_c = src[0];
+			this->_i = static_cast<int>(this->_c);
+			this->_f = static_cast<float>(this->_c);
+			this->_d = static_cast<double>(this->_c);
+
+		case INT:
+			this->_i = atoi(src);
+			if (this->_i > 32 && this->_i < 127)
+			{
+				this->_c = static_cast<char>(this->_i);
+			}
+			else
+				this->_c = '0';
+			this->_f = static_cast<float>(this->_i);
+			this->_d = static_cast<double>(this->_i);
+
+		case FLOAT:
+			this->_f = static_cast<float>(atof(src));
+			if (this->_f > 32 && this->_f < 127)
+			{
+				this->_c = static_cast<char>(this->_f);
+			}
+			else
+				this->_c = '0';
+			this->_i = static_cast<int>(this->_f);
+			this->_d = static_cast<double>(this->_f);
+
+		case DOUBLE:
+			this->_d = atof(src);
+			if (this->_d > 32 && this->_d < 127)
+			{
+				this->_c = static_cast<char>(this->_d);
+			}
+			else
+				this->_c = '0';
+			this->_i = static_cast<int>(this->_d);
+			this->_f = static_cast<float>(this->_d);
+	}
 	std::cout << "cast in string is: ";
-	if (d > 32 && d < 127)
-	{
-		c = static_cast<char>(d);
-		std::cout << c << std::endl;
-	}
+	if (this->_c == '0')
+			std::cout << "not defined" << std::endl;
 	else
-		std::cout << "not defined" << std::endl;
-// int
+		std::cout << this->_c << std::endl;
 	std::cout << "cast in int is: ";
-	if (minmax == -1 || d < INT_MIN)
-	{
-		std::cout << "smaller than int min " << INT_MIN << std::endl;
-	}
-	else if (minmax == 1 || d > INT_MAX)
-	{
-		std::cout << "bigger than int max " << INT_MAX << std::endl;
-	}
+	if (this->_i == -2147483648 && str != "-2147483648")
+			std::cout << "not defined" << std::endl;
 	else
-	{
-		if (isalpha(src[0]))
-			i = static_cast<int>(src[0]);
-		else
-			i = static_cast<int>(d);
-		std::cout << i << std::endl;
-	}
-// float
-	std::cout << "cast in float is: ";
-	if (minmax == -1)
-	{
-		std::cout << "smaller than float min " << FLT_MIN << std::endl;
-	}
-	else if (minmax == 1 || d > FLT_MAX)
-	{
-		std::cout << "bigger than float max " << FLT_MAX << std::endl;
-	}
-	else
-	{
-		if (isalpha(src[0]))
-			f = static_cast<float>(src[0]);
-		else
-			f = static_cast<float>(d);
-		std::cout << f;
-		if (f - i == 0)
+		std::cout << this->_i << std::endl;
+	std::cout << "cast in float is: " ;
+	std::cout << this->_f;
+		if (this->_f - this->_i == 0)
 			std::cout << ".0";
 		std::cout << "f" << std::endl;
-	}
-// double
 	std::cout << "cast in double is: ";
-	if (minmax == -1)
-	{
-		std::cout << "smaller than double min" << DBL_MIN << std::endl;
-	}
-	else if (minmax == 1)
-	{
-		std::cout << "bigger than double max" << DBL_MAX << std::endl;
-	}
-	else
-	{
-		std::cout << d;
-		if (d - i == 0)
-			std::cout << ".0";
-		std::cout << std::endl;
-	}
+	std::cout << this->_d;
+		if (this->_d - this->_i == 0)
+			std::cout << ".0" << std::endl;
 }
