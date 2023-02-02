@@ -6,18 +6,12 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:31:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/02 11:33:51 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:44:06 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-// #include <cctype>
-// #include <iomanip>
 #include <iostream>
-// #include <limits>
-// #include <sstream>
-// #include <climits>
-// #include <cmath>
 #include <float.h>
 
 ScalarConverter::ScalarConverter()
@@ -56,6 +50,8 @@ void ScalarConverter::convert(const char *src)
 		else
 			minmax = 1;
 	}
+	if (d == 0 && src[0] != '0' && !src[1])
+		d = static_cast<double>(src[0]);
 // Char
 	std::cout << "cast in string is: ";
 	if (d > 32 && d < 127)
