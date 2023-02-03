@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:31:27 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/03 14:17:31 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:56:48 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,16 @@
 class Serializer
 {
 	private:
+
+		Serializer();
 		Serializer(const Serializer &s);
 		Serializer &operator=(const Serializer &s);
 
 	public:
 		uintptr_t	ptr;
 		Data		*d;
-		Serializer();
+
+		Serializer(int some_int, double some_double);
 		~Serializer();
 
 		uintptr_t serialize(Data* ptr);

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:48:58 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/02 16:49:49 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:56:44 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 
 typedef struct s_data
 {
-	int 		some_int;
-	double		some_double;
-	float		some_float;
-	std::string	some_string;
+	int 	some_int;
+	double	some_double;
 }	Data;
 
 #endif

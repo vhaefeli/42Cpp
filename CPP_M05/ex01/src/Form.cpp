@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 15:08:11 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/03 17:41:23 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Bureaucrat.hpp"
 
 Form::Form()
-	: _name ("000"), _isSigned(0), _minGradeSignature(150), _minGradeExecution(150)
+	: _name("000"), _isSigned(0), _minGradeSignature(150), _minGradeExecution(150)
 {
 	std::cout << "Form Default constructor called" << std::endl;
 }
