@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:31:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/02 15:46:48 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/03 13:19:29 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &sc)
 
 ScalarConverter::~ScalarConverter()
 {
-
 }
 
 static int	checkFloat(std::string str)
