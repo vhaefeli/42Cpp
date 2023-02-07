@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:31:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/03 13:19:29 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:00:50 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,91 +103,95 @@ static int	checkDouble(std::string str)
 	return 1;
 }
 
-void ScalarConverter::checktype(const char *src)
+void	ScalarConverter::convert(const char *src)
 {
+	enum Source {
+			UNKNOWN,
+			CHAR,
+			INT,
+			FLOAT,
+			DOUBLE
+		};
+	char	c;
+	int		i;
+	float	f;
+	double	d;
+	Source	type;
 	std::string str;
 
 	str = src;
 	if (checkInt(str))
-		this->_type = INT;
+		type = INT;
 	else if (checkFloat(str))
-		this->_type = FLOAT;
+		type = FLOAT;
 	else if (checkDouble(str))
-		this->_type = DOUBLE;
+		type = DOUBLE;
 	else if (str.length() == 1)
-		this->_type = CHAR;
+		type = CHAR;
 	else
-		this->_type = UNKNOWN;
-
-}
-
-void	ScalarConverter::convert(const char *src)
-{
-	std::string str;
-	str = src;
-	this->checktype(src);
-	switch(_type)
+		type = UNKNOWN;
+	switch(type)
 	{
 		case UNKNOWN:
 			std::cout << "please put one and only one argument a character, a int, a float or a double" << std::endl;
 			return ;
 
 		case CHAR:
-			this->_c = src[0];
-			this->_i = static_cast<int>(this->_c);
-			this->_f = static_cast<float>(this->_c);
-			this->_d = static_cast<double>(this->_c);
+			c = src[0];
+			i = static_cast<int>(c);
+			f = static_cast<float>(c);
+			d = static_cast<double>(c);
 
 		case INT:
-			this->_i = atoi(src);
-			if (this->_i > 32 && this->_i < 127)
+			i = atoi(src);
+			if (i > 32 && i < 127)
 			{
-				this->_c = static_cast<char>(this->_i);
+				c = static_cast<char>(i);
 			}
 			else
-				this->_c = '0';
-			this->_f = static_cast<float>(this->_i);
-			this->_d = static_cast<double>(this->_i);
+				c = '0';
+			f = static_cast<float>(i);
+			d = static_cast<double>(i);
 
 		case FLOAT:
-			this->_f = static_cast<float>(atof(src));
-			if (this->_f > 32 && this->_f < 127)
+			f = static_cast<float>(atof(src));
+			if (f > 32 && f < 127)
 			{
-				this->_c = static_cast<char>(this->_f);
+				c = static_cast<char>(f);
 			}
 			else
-				this->_c = '0';
-			this->_i = static_cast<int>(this->_f);
-			this->_d = static_cast<double>(this->_f);
+				c = '0';
+			i = static_cast<int>(f);
+			d = static_cast<double>(f);
 
 		case DOUBLE:
-			this->_d = atof(src);
-			if (this->_d > 32 && this->_d < 127)
+			d = atof(src);
+			if (d > 32 && d < 127)
 			{
-				this->_c = static_cast<char>(this->_d);
+				c = static_cast<char>(d);
 			}
 			else
-				this->_c = '0';
-			this->_i = static_cast<int>(this->_d);
-			this->_f = static_cast<float>(this->_d);
+				c = '0';
+			i = static_cast<int>(d);
+			f = static_cast<float>(d);
 	}
 	std::cout << "cast in string is: ";
-	if (this->_c == '0')
+	if (c == '0')
 			std::cout << "not defined" << std::endl;
 	else
-		std::cout << this->_c << std::endl;
+		std::cout << c << std::endl;
 	std::cout << "cast in int is: ";
-	if (this->_i == -2147483648 && str != "-2147483648")
+	if (i == -2147483648 && str != "-2147483648")
 			std::cout << "not defined" << std::endl;
 	else
-		std::cout << this->_i << std::endl;
+		std::cout << i << std::endl;
 	std::cout << "cast in float is: " ;
-	std::cout << this->_f;
-		if (this->_f - this->_i == 0)
+	std::cout << f;
+		if (f - i == 0)
 			std::cout << ".0";
 		std::cout << "f" << std::endl;
 	std::cout << "cast in double is: ";
-	std::cout << this->_d;
-		if (this->_d - this->_i == 0)
+	std::cout << d;
+		if (d - i == 0)
 			std::cout << ".0" << std::endl;
 }

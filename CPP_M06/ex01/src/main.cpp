@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:32:48 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/03 19:05:06 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:14:59 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 
 int	main()
 {
-	Serializer	s(42, 21.21);
+	Data	d;
+	Data	*ptr;
+	uintptr_t intptr;
 
-	std::cout <<"data int: " << s.d->some_int << std::endl;
-	std::cout <<"data double: " << s.d->some_double << std::endl;
-	std::cout <<"data ptr: " << s.d << std::endl;
-	s.ptr = s.serialize(s.d);
-	std::cout <<"serialize data ptr:" << s.ptr << std::endl;
-	s.d = s.deserialize(s.ptr);
-	std::cout <<"deserialize :" << s.d << std::endl;
+	d.some_double = 21.21;
+	d.some_int = 42;
+	ptr = &d;
+
+	std::cout <<"data ptr: " << ptr << std::endl;
+	intptr = Serializer::serialize(ptr);
+	std::cout <<"serialize data ptr:" << intptr << std::endl;
+	std::cout <<"deserialize :" << Serializer::deserialize(intptr) << std::endl;
 }
