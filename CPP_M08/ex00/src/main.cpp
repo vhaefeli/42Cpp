@@ -6,23 +6,51 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:50:26 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/09 15:56:03 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:26:06 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#include "Easyfind.hpp"
 
 #include <iostream>
 
 int main ()
 {
-	int tab[] = {1, 3, 6, 8};
-	std::string texte[] = {"hya", "so", "annoying"};
+	std::vector<int> myvector;
 
-	::iter(tab, sizeof(tab) / sizeof(int), print_el);
-	std::cout << std::endl;
-	::iter(texte, sizeof(texte) / sizeof(std::string), print_el);
-	std::cout << std::endl;
-	::print_el(tab[1]);
+	myvector.push_back(10);
+	myvector.push_back(25);
+	myvector.push_back(40);
+	myvector.push_back(55);
+
+	try
+	{
+		std::vector<int>::iterator it = easyfind<std::vector<int> >(myvector, 40);
+		std::cout << &it << std::endl;
+	}
+	catch (const NotFoundException &e)
+	{
+		std::cerr << e.what() <<std::endl;
+	}
+
+	try
+	{
+		std::vector<int>::iterator it = easyfind<std::vector<int> >(myvector, 55);
+		std::cout << &it << std::endl;
+	}
+	catch (const NotFoundException &e)
+	{
+		std::cerr << e.what() <<std::endl;
+	}
+
+	try
+	{
+		std::vector<int>::iterator it = easyfind<std::vector<int> >(myvector, 18);
+		std::cout << *it << std::endl;
+	}
+	catch (const NotFoundException &e)
+	{
+		std::cerr << e.what() <<std::endl;
+	}
 	return 0;
 }

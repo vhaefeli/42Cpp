@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 14:39:10 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:35:46 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ std::string const & getType() const; //Returns the materia type
 virtual AMateria* clone() const = 0;
 virtual void use(ICharacter& target);
 };
-10
 
 
 #endif
 
-// children class:
-// Cat
-// Dog

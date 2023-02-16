@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/08 19:42:35 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/13 18:26:43 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 # include <iostream>
+# include <exception>
+# include <string>
+# include <vector>
+# include <algorithm>
+
+class NotFoundException : public std::exception
+{
+	public :
+	virtual const char * what() const throw()
+	{
+		return ("object not found");
+	}
+};
 
 template <typename T>
-void iter(T tab[], int tab_size, void(*f)(T &))
+typename T::iterator easyfind(T &x, int y)
 {
-	if (tab_size < 0)
-		return ;
-	for (int i(0); i < tab_size; i++)
+	typename T::iterator it = find(x.begin(), x.end(), y);
+	
+	if (it != x.end())
 	{
-		f(tab[i]);
+		std::cout << "The first value is found" << std::endl;
+		return it;
 	}
-}
-
-template<class T>
-void	print_el(T &val)
-{
-	std::cout << "Element = " << val << std::endl;
+	throw NotFoundException();
 }
 
 #endif

@@ -6,11 +6,11 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/02/09 15:48:46 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/02/13 16:22:57 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= iter
+TARGET		= easyfind
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 CPPFLAGS	= -Iinclude
