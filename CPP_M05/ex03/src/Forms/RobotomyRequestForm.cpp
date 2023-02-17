@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 02:00:51 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/30 13:28:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:02:38 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <string>
 #include "AForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
@@ -32,9 +33,12 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &f)
 	*this = f;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &f)
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &f)
 {
-	(void)f;
+	std::cout << "robotCopy assignment operator called" << std::endl;
+
+	AForm::operator=(f);
+	this->_target = f._target;
 	return (*this);
 }
 RobotomyRequestForm::~RobotomyRequestForm()
@@ -55,4 +59,9 @@ void	RobotomyRequestForm::doExecution() const
 		std::cout << "Robotomy is a success. " << _target << " has been updated! [( •_• )]"  << std::endl;
 	else
 		std::cout << "Robotomy has failed. " << _target << " will be deleted." << std::endl;
+}
+
+std::string	RobotomyRequestForm::getTarget() const
+{
+	return (this->_target);
 }

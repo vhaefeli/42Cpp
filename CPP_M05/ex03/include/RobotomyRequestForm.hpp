@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:55:54 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/30 15:10:54 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:08:51 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class RobotomyRequestForm : public AForm
 {
 	private:
 
-			const std::string	_target;
+			std::string	_target;
 	public:
 
 			RobotomyRequestForm();
@@ -29,7 +29,8 @@ class RobotomyRequestForm : public AForm
 			RobotomyRequestForm &operator=(const RobotomyRequestForm &f);
 			~RobotomyRequestForm();
 
-			virtual void		doExecution() const;
+			virtual void		doExecution(void) const;
+			std::string	getTarget(void) const;
 
 };
 

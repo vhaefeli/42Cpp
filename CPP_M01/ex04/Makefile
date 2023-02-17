@@ -6,12 +6,12 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 17:50:59 by trossel           #+#    #+#              #
-#    Updated: 2023/01/10 19:25:29 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/02/16 11:01:23 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		= newsed
-CXX			= c++
+CXX			= g++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src

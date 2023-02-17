@@ -6,13 +6,13 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 17:50:59 by trossel           #+#    #+#              #
-#    Updated: 2023/01/11 16:57:15 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/02/16 11:02:55 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		= HarlFilter
-CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXX			= g++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj

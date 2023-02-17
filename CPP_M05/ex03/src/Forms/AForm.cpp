@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/28 01:59:05 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:22:13 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ AForm & AForm::operator=(const AForm &f)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &f)
 	{
-		this->_isSigned = f._isSigned;
+		this->_isSigned = f.getSignedStatus();
 		this->_minGradeSignature = f._minGradeSignature;
 		this->_minGradeExecution = f._minGradeExecution;
 	}
@@ -107,4 +107,24 @@ std::ostream& operator<<(std::ostream& o, const AForm &f)
 	o << f.getName() << " Minimal Grade for Signature :" << f.getMinGradeSignature()
 	 << " Minimal Grade for Execution:" << f.getMinGradeExecution();
 	return (o);
+}
+
+const char *AForm::GradeTooHighException::what() const throw ()
+{
+	return ("grade is too hight.");
+}
+
+const char *AForm::GradeTooLowException::what() const throw ()
+{
+	return ("grade is too low.");
+}
+
+const char *AForm::FormNotSignedException::what() const throw ()
+{
+	return ("Form is not signed");
+}
+
+const char *AForm::FormAlreadySignedException::what() const throw ()
+{
+	return ("Form is already signed");
 }

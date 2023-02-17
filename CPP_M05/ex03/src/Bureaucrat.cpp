@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/27 17:00:27 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:14:54 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
-	: _name ("John Do"), _grade(150)
+	: _name("John Do"), _grade(150)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
