@@ -6,56 +6,39 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 12:43:25 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/20 23:17:20 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 #include <iostream>
 
-int main( void )
+int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* k = new Cat();
-	std::cout << std::endl;
-	Cat i;
-	std::cout << std::endl;
-	i.getBrain().setIdea("mouse!", 1);
-	std::cout << "the cat i has one idea: " << i.getBrain().getIdea(1) << std::endl;
-	std::cout << std::endl;
-	Cat c(i);
-	std::cout << std::endl;
-	std::cout << "the cat c has one idea: " << c.getBrain().getIdea(1) << std::endl;
-	i.getBrain().setIdea("more mouse!", 2);
-	std::cout << "the cat i has one idea: " << i.getBrain().getIdea(2) << std::endl;
-	std::cout << "has cat c one idea more?: " << c.getBrain().getIdea(2) << std::endl;
-	std::cout << std::endl;
-	i = c;
-	std::cout << std::endl;
-	std::cout << "has the cat i has still 2 ideas: " << i.getBrain().getIdea(2) << std::endl;
-	std::cout << std::endl;
-	std::cout << "the " << i.getType() << " makes ";
-	i.makeSound();
-	std::cout << "the " << c.getType() << " makes ";
-	c.makeSound();
-	std::cout << "the " << j->getType() << " makes ";
-	j->makeSound();
-	std::cout << "the " << meta->getType() << " makes ";
-	meta->makeSound();
-	std::cout << "the " << k->getType() << " makes ";
-	k->makeSound();
-	std::cout << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
 
-	delete meta;
-	std::cout << std::endl;
-	delete j;
-	std::cout << std::endl;
-	delete k;
-	std::cout << std::endl;
+	ICharacter* me = new Character("me");
 
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+
+	ICharacter* bob = new Character("bob");
+
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+	
 	return 0;
 }

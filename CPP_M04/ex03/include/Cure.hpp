@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                       :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 10:22:56 by vhaefeli         ###   ########.fr       */
+/*   Created: 2023/02/20 17:43:02 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/02/21 21:00:54 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 
-#ifndef		DOG_HPP
-# define	DOG_HPP
+#ifndef		CURE_HPP
+# define	CURE_HPP
 
 //mother class
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Dog : public virtual Animal
+class Cure : public virtual AMateria
 {
 	private:
 
-		Brain *_dogsBrain;
-
 	public:
 
-		Dog();
-		Dog(const Dog &d);
-		Dog &operator=(const Dog &d);
-		virtual ~Dog();
+		Cure();
+		Cure(const Cure &d);
+		Cure &operator=(const Cure &d);
+		virtual ~Cure();
 
-		void makeSound() const;
+		virtual AMateria* clone() const;
 
-		Brain &getBrain();
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 14:40:23 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/21 21:13:14 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ AMateria::AMateria()
 	std::cout << "AMateria Default constructor called" << std::endl;
 }
 
-AMateria::AMateria(const std::string	type)
+AMateria::AMateria(std::string const &type)
 	: _type(type)
 {
 	std::cout << "AMateria Constructor called for a new " << _type << std::endl;
 }
 
-AMateria::AMateria(const AMateria &a)
+AMateria::AMateria(const AMateria &mat)
 {
 	std::cout << "AMateria Copy constructor called" << std::endl;
 	*this = a;
@@ -45,17 +45,19 @@ AMateria::~AMateria()
 	std::cout << "AMateria '" << _type << "' destructed" << std::endl;
 }
 
-std::string AMateria::getType() const
+std::string const &AMateria::getType() const
 {
 	return (_type);
 }
 
-void AMateria::makeSound() const
+void AMateria::use(ICharacter& target)
 {
-	std::cout << "'bip bip'" << std::endl;
+	if (_type = "ice")
+	{
+		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	}
+	if (_type = "cure")
+	{
+		std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+	}
 }
-
-// Brain & AMateria::getBrain()
-// {
-// 	return (*_brain);
-// }

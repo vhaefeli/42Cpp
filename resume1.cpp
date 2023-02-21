@@ -52,6 +52,51 @@ std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance);
 
 #endif
 
+
+// version sans commentaire pour copie
+#include <string> //pour les string
+#include <iostream> //pour l'affichage cout cin ...
+
+#ifndef MACLASS_HPP
+# define MACLASS_HPP
+
+class	MaClass
+{
+	private:
+
+		int			_unChiffre;
+		std::string	_uneString;
+
+	protected :
+
+		virtual void	uneFonction() const;
+
+	public :
+
+
+		class MonException : public std::exception
+		{
+			public :
+				virtual const char *what() const throw();
+		};
+
+		MaClass();
+		MaClass(int unNombre, std::string duTexte);
+		MaClass(const MaClass &uneInstance);
+		MaClass &operator=( const MaClass &rhs);
+		~MaClass();
+
+		int			unChiffrePublique;
+
+		std::string	getString() const;
+		void		setUnChiffre(int n);
+		void		actionOne(MaClass1 const &class1);
+};
+
+std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance);
+
+#endif
+
 /* *** LE CPP AVEC LES DEFINITIONS DES PRINCIPALES FONCTIONS D'UNE CLASS  *** */
 
 // constructeur par defaut
@@ -93,6 +138,7 @@ MaClass &MaClass::operator=( const MaClass &rhs)
 		this->_uneString = rhs._uneString;
 		this->unChiffrePublique = rhs.unChiffrePublique;
 	}
+	return (*this);
 }
 
 //destructeur
@@ -256,10 +302,14 @@ void DiamondTrap::whoAmI()
 // fonction template exemple
 
 template<typename T>
-T	max(T const &x, T const &y)
+T const	&max(T const &x, T const &y)
 {
 	return ((x>y) ? x : y);
 }
+
+// & passer par reference: toujours le faire si possible pour economiser de la memoire
+// const : a utiliser si on ne modifie pas les valeurs pour eviter toutes modifications
+// non desirees
 
 // utilisation
 

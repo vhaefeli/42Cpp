@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,46 +11,38 @@
 /* ************************************************************************** */
 
 
-#include "Dog.hpp"
+#include "Cure.hpp"
 
-Dog::Dog()
-	: Animal("Dog")
+Cure::Cure()
 {
-		_dogsBrain = new Brain();
-	std::cout << "Default Dog constructor called" << std::endl;
+	new AMateria("cure");
+	std::cout << "Default Cure constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &c)
+Cure::Cure(const Cure &c)
 
 {
-	std::cout << "Copy constructor Dog called" << std::endl;
-	this->_dogsBrain = new Brain();
-	*this = c;
+	std::cout << "Copy constructor Cure called" << std::endl;
+	new AMateria("cure");
 }
 
-Dog & Dog::operator=(const Dog &c)
+Cure & Cure::operator=(const Cure &c)
 {
-	std::cout << "Copy assignment operator Dog called" << std::endl;
-	if (this != &c)
-	{
-		Animal::operator=(c);
-		*(this->_dogsBrain) = *(c._dogsBrain); // copie en profondeur
-	}
+	std::cout << "Copy assignment operator Cure called" << std::endl;
 	return (*this);
 }
 
-Dog::~Dog()
+Cure::~Cure()
 {
-	delete _dogsBrain;
-	std::cout << _type << " destructed" << std::endl;
+	delete (this);
+	std::cout << "Cure destructed" << std::endl;
 }
 
-void Dog::makeSound() const
+AMateria* Cure::clone() const
 {
-	std::cout << "'Ouaffff'" << std::endl;
-}
+	AMateria	*clone = new Cure();
 
-Brain & Dog::getBrain()
-{
-	return (*_dogsBrain);
+	std::cout << "Clone Cure" << std::endl;
+
+	return (clone);
 }
