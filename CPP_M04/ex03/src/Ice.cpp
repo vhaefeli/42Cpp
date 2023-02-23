@@ -1,56 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:23:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 12:29:15 by vhaefeli         ###   ########.fr       */
+/*   Created: 2023/02/22 12:20:00 by vhaefeli          #+#    #+#             */
+/*   Updated: 2023/02/23 14:44:36 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "Ice.hpp"
 
-Cat::Cat()
-	: Animal("Cat")
+Ice::Ice()
+	:AMateria("ice")
 {
-	_catsBrain = new Brain();
-	std::cout << "Default Cat constructor called" << std::endl;
+	std::cout << "Default Ice constructor called" << this << std::endl;
+	AMateria::addToList(this);
 }
 
-Cat::Cat(const Cat &c)
-
+Ice::Ice(const Ice &c)
+	:AMateria("ice")
 {
-	std::cout << "Copy constructor Cat called" << std::endl;
-	this->_catsBrain = new Brain();
+	std::cout << "Copy constructor Ice called" << this << std::endl;
+
 	*this = c;
+	AMateria::addToList(this);
 }
 
-Cat & Cat::operator=(const Cat &c)
+Ice & Ice::operator=(const Ice &c)
 {
-	std::cout << "Copy assignment operator Cat called" << std::endl;
+	std::cout << "Copy assignment operator Ice called" << std::endl;
 	if (this != &c)
 	{
-		Animal::operator=(c);
-		*(this->_catsBrain) = *(c._catsBrain);
+		AMateria::operator=(c);
 	}
 	return (*this);
 }
 
-Cat::~Cat()
+Ice::~Ice()
 {
-	delete _catsBrain;
-	std::cout << _type << " destructed" << std::endl;
+	std::cout << "Ice destructed" << this << std::endl;
 }
 
-void Cat::makeSound() const
+AMateria* Ice::clone() const
 {
-	std::cout << "'Miaaaouuuu'" << std::endl;
+	AMateria	*newIce = new Ice();
+	std::cout << "Clone Ice" << std::endl;
+
+	return (newIce);
 }
 
-Brain & Cat::getBrain()
+void Ice::use(ICharacter& target)
 {
-	return (*_catsBrain);
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

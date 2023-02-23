@@ -6,25 +6,35 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 20:11:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/20 20:08:04 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:50:02 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
-#include "AMateria.hpp"
-#include "IMateriaSource.hpp"
+#ifndef		MATERIASOURCE_HPP
+# define	MATERIASOURCE_HPP
 
-#ifndef		IMATERIASOURCE_HPP
-# define	IMATERIASOURCE_HPP
 
-class IMateriaSource
+# include <string>
+# include <iostream>
+# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
+
+class AMateria;
+
+class MateriaSource: public IMateriaSource
 {
+	private:
+
+		AMateria	*_materia[4];
+
 	public:
 
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
+		MateriaSource();
+		MateriaSource(const MateriaSource &ms);
+		MateriaSource &operator=(const MateriaSource &rhs);
+		virtual ~MateriaSource();
+		virtual void learnMateria(AMateria* m);
+		virtual AMateria* createMateria(std::string const & type);
 };
 
 #endif

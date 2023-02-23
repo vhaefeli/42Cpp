@@ -1,10 +1,10 @@
 /* ***************** LE HPP AVEC LA DECLARATION D'UNE CLASS ***************** */
 
-#include <string> //pour les string
-#include <iostream> //pour l'affichage cout cin ...
-
 #ifndef MACLASS_HPP
 # define MACLASS_HPP
+
+#include <string> //pour les string
+#include <iostream> //pour l'affichage cout cin ...
 
 class MaClass1; //declaration d-une class utilisee dans la class mais sans
 				// affiliation
@@ -54,11 +54,11 @@ std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance);
 
 
 // version sans commentaire pour copie
-#include <string> //pour les string
-#include <iostream> //pour l'affichage cout cin ...
-
 #ifndef MACLASS_HPP
 # define MACLASS_HPP
+
+# include <string>
+# include <iostream>
 
 class	MaClass
 {

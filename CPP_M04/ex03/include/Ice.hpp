@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:17:04 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/19 15:35:07 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:09:24 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#ifndef		ICE_HPP
+# define	ICE_HPP
 
 #include <string>
 #include <iostream>
 
-#ifndef		CAT_HPP
-# define	CAT_HPP
-
 //mother class
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "AMateria.hpp"
 
-class Cat : virtual public Animal
+class ICharacter;
+
+class Ice : public virtual AMateria
 {
 	private:
 
-		Brain *_catsBrain;
-
 	public:
 
-		Cat();
-		Cat(const Cat &c);
-		Cat &operator=(const Cat &c);
-		virtual ~Cat();
+		Ice();
+		Ice(const Ice &d);
+		Ice &operator=(const Ice &d);
+		virtual ~Ice();
 
-		void makeSound() const;
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 
-		Brain &getBrain();
 };
 
 #endif

@@ -6,16 +6,18 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/19 20:10:07 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:04:36 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef		ICHARACTER_HPP
+# define	ICHARACTER_HPP
 
 #include <string>
 #include <iostream>
 #include "AMateria.hpp"
 
-#ifndef		ICHARACTER_HPP
-# define	ICHARACTER_HPP
+class AMateria;
 
 class ICharacter
 {

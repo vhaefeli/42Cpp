@@ -6,18 +6,20 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:43:02 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/21 21:00:54 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:10:06 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string>
-#include <iostream>
 
 #ifndef		CURE_HPP
 # define	CURE_HPP
 
+#include <string>
+#include <iostream>
+
 //mother class
 #include "AMateria.hpp"
+
+class ICharacter;
 
 class Cure : public virtual AMateria
 {
@@ -31,7 +33,9 @@ class Cure : public virtual AMateria
 		virtual ~Cure();
 
 		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 
 };
 
 #endif
+

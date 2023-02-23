@@ -6,22 +6,22 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/20 14:29:19 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/02/22 13:19:20 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-TARGET		= Animals
+TARGET		= Materia
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj
 SRCS		= main.cpp \
-			  ICharacter.cpp \
+			  Character.cpp \
 			  AMateria.cpp \
 			  Cure.cpp \
 			  Ice.cpp \
-			  Brain.cpp \
+			  MateriaSource.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
