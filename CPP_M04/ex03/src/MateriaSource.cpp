@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:15:27 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 16:12:15 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:28:41 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &rhs)
 MateriaSource::~MateriaSource()
 {
 
-	AMateria::deleteAllMateria();
-	std::cout << "MateriaSource destructed and all the materia are destructed also!!!" << std::endl;
+	// AMateria::deleteAllMateria();
+	std::cout << "MateriaSource destructed" << std::endl;
 }
 
 
@@ -76,12 +76,10 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 		{
 			if (type == "cure")
 			{
-				std::cout << "NEW CURE" << std::endl;
 				return (new Cure());
 			}
 			if (type == "ice")
 			{
-				std::cout << "NEW Ice" << std::endl;
 				return (new Ice());
 			}
 		}

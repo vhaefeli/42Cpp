@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 16:07:45 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:03:38 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ class AMateria
 		virtual void use(ICharacter& target);
 
 		static void deleteAllMateria();
+		static void deleteOneMateria(AMateria *Materia);
 };
 
 std::ostream &operator<<(std::ostream &o, const AMateria &uneInstance);

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:15:27 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/22 15:17:23 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:07:52 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ Character::Character(const Character &buddy)
 	this->_name = buddy._name + " twin";
 	for (int i(0); i < 4 ; i++)
 	{
-		this->_materia[i] = buddy._materia[i];
+		_materia[i] = NULL;
 	}
+	*this = buddy;
 }
 
 Character &Character::operator=(const Character &rhs)
@@ -52,7 +53,18 @@ Character &Character::operator=(const Character &rhs)
 	{
 		for (int i(0); i < 4 ; i++)
 		{
-			this->_materia[i] = rhs._materia[i];
+			if (this->_materia[i])
+			{
+				std::cout << this->_materia[i] << std::endl;
+				AMateria::deleteOneMateria(this->_materia[i]);
+				this->_materia[i]= NULL;
+				std::cout << this->_materia[i] << std::endl;
+			}
+			if (rhs._materia[i])
+			{
+				this->_materia[i] = rhs._materia[i]->clone();
+			}
+
 		}
 	}
 	return (*this);
@@ -60,6 +72,18 @@ Character &Character::operator=(const Character &rhs)
 
 Character::~Character()
 {
+	std::cout << "Start Character '" << _name << "' destructed" << std::endl;
+	for (int i(0); i < 4 ; i++)
+	{
+		if (this->_materia[i])
+		{
+			std::cout << "this->_materia[i]'" << this->_materia[i] << "' destructed" << std::endl;
+			AMateria::deleteOneMateria(this->_materia[i]);
+			std::cout << "this->_materia[i]'" << this->_materia[i] << "' destructed" << std::endl;
+			std::cout << "SIHISHD" << std::endl;
+			this->_materia[i]= NULL;
+		}
+	}
 	std::cout << "Character '" << _name << "' destructed" << std::endl;
 }
 

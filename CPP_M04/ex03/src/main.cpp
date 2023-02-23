@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 14:36:24 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:08:27 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,23 @@ int main()
 	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
+	Character john("john");
 
-	std::cout <<"****"<< std::endl;
 
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	std::cout << "ice: "<< tmp << std::endl;
 	me->equip(tmp);
 	me->equip(tmp->clone());
 	tmp = src->createMateria("bisous");
-	std::cout << tmp << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
-	std::cout << tmp << std::endl;
-	me->equip(tmp);
+	john.equip(tmp);
+
+	Character john_twin(john);
+
 	tmp = src->createMateria("cure");
-	std::cout << tmp << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
-	std::cout << tmp << std::endl;
 	me->equip(tmp);
 	me->unequip(0);
 
@@ -56,6 +54,8 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-
+	std::cout << "****" << std::endl;
+	AMateria::deleteAllMateria();
+	std::cout << "****" << std::endl;
 	return 0;
 }
