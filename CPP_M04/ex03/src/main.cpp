@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 18:08:27 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:38:32 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,41 @@ int main()
 	ICharacter* me = new Character("me");
 	Character john("john");
 
-
+	std::cout << std::endl << std::endl;
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
+	std::cout << std::endl << std::endl;
 	me->equip(tmp);
+	std::cout << std::endl << std::endl;
 	me->equip(tmp->clone());
+	std::cout << std::endl << std::endl;
 	tmp = src->createMateria("bisous");
 	me->equip(tmp);
+	std::cout << std::endl << std::endl;
 	tmp = src->createMateria("ice");
+
 	john.equip(tmp);
+	std::cout << std::endl << std::endl;
 
 	Character john_twin(john);
+	std::cout << std::endl << std::endl;
 
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
+	std::cout << std::endl << std::endl;
 	me->unequip(0);
-
+	std::cout << std::endl << std::endl;
+	john.equip(src->createMateria("cure"));
 
 	ICharacter* bob = new Character("bob");
+	std::cout << std::endl << std::endl;
 
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->use(2, *bob);
+	john.use(1, *bob);
+	std::cout << std::endl << "************ THE END ***********" << std::endl << std::endl;
 
 	delete bob;
 	delete me;

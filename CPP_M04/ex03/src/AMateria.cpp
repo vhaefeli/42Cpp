@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 18:05:37 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:06:46 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,28 +97,21 @@ void AMateria::deleteAllMateria()
 	temp = AMateria::_MateriaList;
 	while (temp->next)
 	{
-		std::cout << "A" << std::endl;
 		temp2 = temp;
 		if (temp->theMateria)
 		{
-			std::cout << "temp->theMateria" << temp->theMateria << "destructed" << std::endl;
 			delete(temp->theMateria);
-			std::cout << "L" << std::endl;
 			temp->theMateria = NULL;
 		}
 		temp = temp->next;
-		std::cout << "temp2" << temp2 << "destructed" << std::endl;
 		delete(temp2);
 		temp2 = NULL;
-		std::cout << "X" << std::endl;
 	}
-	std::cout << "last temp->theMateria" << temp->theMateria << "destructed" << std::endl;
 	if (temp->theMateria)
 	{
 		delete(temp->theMateria);
 		temp->theMateria = NULL;
 	}
-	std::cout << "end" << temp << "destructed" << std::endl;
 	delete(temp);
 	temp = NULL;
 }
@@ -126,12 +119,10 @@ void AMateria::deleteAllMateria()
  void AMateria::deleteOneMateria(AMateria *Materia)
  {
 	t_MateriaList	*temp;
-	t_MateriaList	*temp2;
 
 	temp = AMateria::_MateriaList;
 	while (temp->next)
 	{
-		temp2 = temp;
 		if (temp->theMateria && temp->theMateria == Materia)
 		{
 			delete(temp->theMateria);

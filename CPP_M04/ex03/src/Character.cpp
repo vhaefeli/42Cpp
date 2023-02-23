@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:15:27 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 18:07:52 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:41:58 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ Character &Character::operator=(const Character &rhs)
 		{
 			if (this->_materia[i])
 			{
-				std::cout << this->_materia[i] << std::endl;
 				AMateria::deleteOneMateria(this->_materia[i]);
 				this->_materia[i]= NULL;
-				std::cout << this->_materia[i] << std::endl;
 			}
 			if (rhs._materia[i])
 			{
@@ -72,15 +70,11 @@ Character &Character::operator=(const Character &rhs)
 
 Character::~Character()
 {
-	std::cout << "Start Character '" << _name << "' destructed" << std::endl;
 	for (int i(0); i < 4 ; i++)
 	{
 		if (this->_materia[i])
 		{
-			std::cout << "this->_materia[i]'" << this->_materia[i] << "' destructed" << std::endl;
 			AMateria::deleteOneMateria(this->_materia[i]);
-			std::cout << "this->_materia[i]'" << this->_materia[i] << "' destructed" << std::endl;
-			std::cout << "SIHISHD" << std::endl;
 			this->_materia[i]= NULL;
 		}
 	}
@@ -94,7 +88,6 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	std::cout << "Materia to equip " << m << std::endl;
 	if (m)
 	{
 		for (int i(0); i < 4 ; i++)
@@ -102,11 +95,11 @@ void Character::equip(AMateria* m)
 			if (this->_materia[i] == NULL)
 			{
 				this->_materia[i] = m;
-				std::cout << "Materia " << m->getType() << " put on place " << i << std::endl;
+				std::cout << this->_name << " equiped a Materia ";
+				std::cout << m->getType() << " on place " << i << std::endl;
 				break ;
 			}
 		}
-		std::cout << "equipement termine" << std::endl;
 	}
 }
 
@@ -114,7 +107,6 @@ void Character::unequip(int idx)
 {
 	if (this->_materia[idx] != NULL)
 	{
-		std::cout << this->_materia[idx] << std::endl;
 		std::cout << "Materia " << this->_materia[idx]->getType() << " has been droped " << std::endl;
 		this->_materia[idx] = NULL;
 	}
@@ -124,8 +116,12 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (this->_materia[idx])
 	{
+		std::cout << "* " << this->_name << " ";
 		(this->_materia[idx])->use(target);
+		std::cout << " *" <<std::endl;
 	}
+	else
+		std::cout << "* oh! " << this->_name << " has no equipment in compartiment " << idx << " *" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &o, const Character &uneInstance)

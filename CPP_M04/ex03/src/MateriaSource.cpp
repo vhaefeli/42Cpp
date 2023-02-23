@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 21:15:27 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 16:28:41 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:09:13 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &rhs)
 
 MateriaSource::~MateriaSource()
 {
-
-	// AMateria::deleteAllMateria();
 	std::cout << "MateriaSource destructed" << std::endl;
 }
 

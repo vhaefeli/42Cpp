@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:20:00 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 14:44:36 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:31:57 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "🧊 shoots an ice bolt at " << target.getName();
 }

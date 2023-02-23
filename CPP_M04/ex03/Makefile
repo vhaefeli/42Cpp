@@ -6,13 +6,13 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/02/22 13:19:20 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/02/23 18:50:40 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		= Materia
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj
@@ -31,7 +31,7 @@ UNAME= $(shell uname -s)
 ifeq ($(UNAME), Darwin)
 98: CXX = g++-11
 endif
-98: CXXFLAGS += -pedantic -std=c++98
+98: CXXFLAGS += -pedantic 
 98: fclean $(TARGET)
 
 debug: CXXFLAGS += -g3
