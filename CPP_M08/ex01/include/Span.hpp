@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/24 14:39:23 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:43:47 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 class Span
 {
 	private:
-		int		_maxSize;
+		int					_maxSize;
 		std::vector<int>	_values;
-		int		_inserted;
+		int					_inserted;
 
 		Span();
 
