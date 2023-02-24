@@ -6,81 +6,135 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/24 09:41:05 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:32:51 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-template <typename T>
-Span<T>::Span()
+Span::Span()
+	:_maxSize(0), _inserted(0)
 {
-	this->_size = 0;
-	this->_inserted = 0;
-	this->_values = new T[0]; 
 }
 
-template <typename T>
-Span<T>::Span(unsigned int n)
+Span::Span(unsigned int n)
+	:_maxSize(n), _inserted(0)
 {
-	this->_size = n;
-	this->_inserted = 0;
-	this->_values = new T[n]; 
 }
 
-template <typename T>
-Span<T>::~Span()
+Span::~Span()
 {
-	delete (this->_values);
 }
 
-template <typename T>
-Span<T>::Span(const Span<T> &rhs)
+Span::Span(const Span &rhs)
 {
 	*this = rhs;
 }
 
-template <typename T>
-Span<T> &Span<T>::operator=(const Span<T> &rhs)
+Span &Span::operator=(const Span &rhs)
 {
-	if (this->_values)
-		delete[] this->_values;
-	this->_size = rhs._size;
-	this->_values = new T[_size];
-	for (unsigned int i = 0; i < _size; i++) {
+	this->_maxSize = rhs._maxSize;
+	this->_inserted = rhs._inserted;
+	for (int i(0); i < this->_inserted; i++)
+	{
 		this->_values[i] = rhs._values[i];
 	}
 	return (*this);
 }
 
-template<class T>
-T	&Span<T>::operator[](unsigned int i)
+
+void	Span::addNumber(int n)
 {
-	if (if i < 0 || i >= this->_size)
-		throw Span<T>::InvalidIndexException();
-	if (if i >= this->_inserted)
-		throw Span<T>::NotFoundException
+	if ( this->_inserted < this->_maxSize)
+	{
+		this->_values.push_back(n);
+		this->_inserted++;
+	}
 	else
-		return (_values[i]);
+		throw Span::FullException();
 }
 
-template <typename T>
-unsigned int Span<T>::size()
+void	Span::addRandom(int n)
 {
-	return (this->_size);
+	static int num = 0;
+	if ((this->_inserted + n) > this->_maxSize)
+	{
+		throw Span::tooMuchNbr();
+	}
+	else
+	{
+		for (int i(0); i < n; i++)
+		{
+			if (num == 0)
+				srand(time(NULL));
+			num = std::rand() % 1000;
+			Span::addNumber(num);
+		}
+	}
 }
 
-const char *Span<T>::FullException::what() const throw()
+void	Span::printNbrs()
 {
-	return ("list already full");
+	for (int i(0); i < this->_inserted; i++)
+	{
+		std::cout << " * " << this->_values[i];
+	}
+	std::cout << " * " << std::endl;
 }
 
-const char *Span<T>::NotFoundException::what() const throw()
+int	Span::shortestSpan()
 {
-	return ("not defined: not enough numbers");
+	int shortestSpan;
+
+	if (this->_inserted < 2)
+		throw Span::NotEnoughNbr();
+	std::sort(this->_values.begin(), this->_values.begin() + this->_inserted);
+	shortestSpan = (this->_values[1] - this->_values[0]);
+	for (int i(1); i < (this->_inserted - 1) ; i++)
+	{
+		int	diff;
+
+		diff = (this->_values[i + 1] - this->_values[i]);
+		if (diff < shortestSpan)
+			shortestSpan = diff;
+		if (shortestSpan == 0)
+			break;
+	}
+	return (shortestSpan);
 }
 
-const char *Span<T>::InvalidIndexException::what() const throw()
+int		Span::longestSpan()
 {
-	return ("invalid index");
+	int	ls;
+
+	if (this->_inserted < 2)
+		throw Span::NotEnoughNbr();
+	std::sort(this->_values.begin(), this->_values.begin() + this->_inserted);
+	ls = this->_values[this->_inserted - 1] - this->_values[0];
+	return (ls);
+}
+
+const char *Span::FullException::what() const throw()
+{
+	return ("*list already full*");
+}
+
+const char *Span::NotFoundException::what() const throw()
+{
+	return ("*not defined: not enough numbers*");
+}
+
+const char *Span::InvalidIndexException::what() const throw()
+{
+	return ("*invalid index*");
+}
+
+const char *Span::NotEnoughNbr::what() const throw()
+{
+	return ("*not enough numbers to compare (min 2)*");
+}
+
+const char *Span::tooMuchNbr::what() const throw()
+{
+	return ("*too much numbers to insert*");
 }

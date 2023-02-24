@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/02/13 18:41:27 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/02/24 14:40:15 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj
 SRCS		= main.cpp \
-				span.cpp
+				Span.cpp \
 
 OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
@@ -44,9 +44,6 @@ fclean: clean
 	rm -f $(TARGET)
 
 re: fclean all
-
-run: all
-	@-./$(TARGET)
 
 runleaks: all
 	@-leaks -atExit -- ./$(TARGET)
