@@ -6,34 +6,17 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/13 23:50:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/24 09:41:05 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-# define SPAN_HPP
-
-# include <iostream>
-# include <exception>
-# include <string>
-
-
-
-Span::Span()
-Span::Span(unsigned int n);
-Span::Span(const Span &rhs);
-Span &Span::operator=(const Span &rhs);
-Span::~Span();
-
-void	Span::addNumber(int n);
-int		Span::shortestSpan();
-int		Span::longestSpan();
-
+#include "Span.hpp"
 
 template <typename T>
 Span<T>::Span()
 {
 	this->_size = 0;
+	this->_inserted = 0;
 	this->_values = new T[0]; 
 }
 
@@ -41,6 +24,7 @@ template <typename T>
 Span<T>::Span(unsigned int n)
 {
 	this->_size = n;
+	this->_inserted = 0;
 	this->_values = new T[n]; 
 }
 
@@ -53,7 +37,6 @@ Span<T>::~Span()
 template <typename T>
 Span<T>::Span(const Span<T> &rhs)
 {
-	this->_values = new T[0]; 
 	*this = rhs;
 }
 
@@ -73,8 +56,10 @@ Span<T> &Span<T>::operator=(const Span<T> &rhs)
 template<class T>
 T	&Span<T>::operator[](unsigned int i)
 {
-	if (i >= this->_size)
+	if (if i < 0 || i >= this->_size)
 		throw Span<T>::InvalidIndexException();
+	if (if i >= this->_inserted)
+		throw Span<T>::NotFoundException
 	else
 		return (_values[i]);
 }
@@ -85,4 +70,17 @@ unsigned int Span<T>::size()
 	return (this->_size);
 }
 
-#endif
+const char *Span<T>::FullException::what() const throw()
+{
+	return ("list already full");
+}
+
+const char *Span<T>::NotFoundException::what() const throw()
+{
+	return ("not defined: not enough numbers");
+}
+
+const char *Span<T>::InvalidIndexException::what() const throw()
+{
+	return ("invalid index");
+}

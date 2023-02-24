@@ -238,6 +238,19 @@ class Serializer
 
 std::cout <<"deserialize :" << Serializer::deserialize(intptr) << std::endl;
 
+
+// Il peut z avoir des fonctions ou des variables statique dans une class "standard"
+// l'initialisation des variable se fait en haut du cpp correspondant par exemple
+
+// dans le hpp:
+static t_MateriaList *_MateriaList;
+
+// dans le cpp:
+t_MateriaList *AMateria::_MateriaList = NULL;
+
+// les fonctions s'utilisent comme dans l'exemple de la class "completement" statique
+
+
 /* ************************************************************************** */
 // HERITAGE
 

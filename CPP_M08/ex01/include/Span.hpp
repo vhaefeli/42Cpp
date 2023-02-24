@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/13 19:05:00 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/24 09:41:10 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,42 @@
 # include <string>
 # include <list>
 
+template <typename T>
 class Span
 {
-private:
-	unsigned int	_size;
-	std::list<int> _numbers;
+	private:
+		unsigned int	_maxSize;
+		std::list<T>	_values;
+		unsigned int	_inserted;
 
-	Span();
+		Span();
 
-public:
+	public:
 
-	class FullException:public std::exception{
-		public:
-			virtual const char *what() const throw(){
-				return ("list already full");
-			}
-	};
+		class FullException:public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
 
-	class NotFoundException:public std::exception{
-		public:
-			virtual const char *what() const throw(){
-				return ("not defined: not enough numbers");
-			}
-	};
+		class NotFoundException:public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
 
-	Span(unsigned int n);
-	Span(const Span &rhs);
-	Span &operator=(const Span &rhs);
-	~Span();
+		class InvalidIndexException:public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
 
-	void	addNumber(int n);
-	int		shortestSpan();
-	int		longestSpan();
+		Span(unsigned int n);
+		Span(const Span &rhs);
+		Span &operator=(const Span &rhs);
+		T	&operator[](unsigned int i);
+		~Span();
+
+		void	addNumber(int n);
+		int		shortestSpan();
+		int		longestSpan();
 };
 
 #endif
