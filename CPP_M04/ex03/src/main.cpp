@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 19:38:32 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/24 11:11:48 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 	tmp = src->createMateria("bisous");
 	me->equip(tmp);
 	std::cout << std::endl << std::endl;
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("cure");
 
 	john.equip(tmp);
 	std::cout << std::endl << std::endl;
@@ -52,15 +52,16 @@ int main()
 	std::cout << std::endl << std::endl;
 	me->unequip(0);
 	std::cout << std::endl << std::endl;
-	john.equip(src->createMateria("cure"));
 
 	ICharacter* bob = new Character("bob");
 	std::cout << std::endl << std::endl;
 
 	me->use(0, *bob);
 	me->use(1, *bob);
-	john.use(1, *bob);
+	john.use(0, *bob);
+
 	std::cout << std::endl << "************ THE END ***********" << std::endl << std::endl;
+
 
 	delete bob;
 	delete me;

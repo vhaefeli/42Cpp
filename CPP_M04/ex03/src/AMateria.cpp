@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/23 19:06:46 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/24 11:12:28 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,26 +114,30 @@ void AMateria::deleteAllMateria()
 	}
 	delete(temp);
 	temp = NULL;
+	AMateria::_MateriaList = NULL;
 }
 
  void AMateria::deleteOneMateria(AMateria *Materia)
  {
 	t_MateriaList	*temp;
 
-	temp = AMateria::_MateriaList;
-	while (temp->next)
+	if (AMateria::_MateriaList)
 	{
+		temp = AMateria::_MateriaList;
+		while (temp->next)
+		{
+			if (temp->theMateria && temp->theMateria == Materia)
+			{
+				delete(temp->theMateria);
+				temp->theMateria = NULL;
+			}
+			temp = temp->next;
+		}
 		if (temp->theMateria && temp->theMateria == Materia)
 		{
 			delete(temp->theMateria);
 			temp->theMateria = NULL;
 		}
-		temp = temp->next;
-	}
-	if (temp->theMateria && temp->theMateria == Materia)
-	{
-		delete(temp->theMateria);
-		temp->theMateria = NULL;
 	}
  }
 
