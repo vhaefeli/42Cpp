@@ -130,7 +130,7 @@ MaClass::MaClass(const MaClass &uneInstance)
 }
 
 // surcharge de l'operateur =
-MaClass &MaClass::operator=( const MaClass &rhs)
+MaClass &MaClass::operator=(const MaClass &rhs)
 {
 
 	if (this != &rhs)
