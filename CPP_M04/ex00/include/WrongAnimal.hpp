@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 17:36:33 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:44:58 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class WrongAnimal
 		virtual ~WrongAnimal();
 
 		virtual std::string getType() const;
-		virtual void makeSound() const;
+		void makeSound() const; // put in virtual if we want the child sound...
 
 };
 

@@ -6,21 +6,18 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 15:17:04 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 14:08:09 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:23:45 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-
-#include <string>
-#include <iostream>
 
 #ifndef		CAT_HPP
 # define	CAT_HPP
 
+# include <string>
+# include <iostream>
 //mother class
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
 class Cat : virtual public AAnimal
 {

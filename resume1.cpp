@@ -184,6 +184,12 @@ int main()
 
 /* ************************ DES CAS PARTICULIERS **************************** */
 /* ************************************************************************** */
+
+// metode virtual
+
+en mettant virtual devant la methode le programme sait qu-il faut aller chercher la fonction de l-enfant.
+
+
 // CLASS ABSTRAITE
 
 class AMaClassAbstraite

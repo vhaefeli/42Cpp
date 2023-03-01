@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/18 17:13:44 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 08:27:45 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-	std::cout << "'bip bip'" << std::endl;
+	std::cout << "'bip bip' 🦤" << std::endl;
 }
