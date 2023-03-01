@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 10:38:25 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:47:42 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,29 @@ Brain::Brain()
 {
 	for (int i(0); i < 100; ++i)
 		this->_ideas[i] = "only void";
-	std::cout << "Brain Default constructor called" << std::endl;
-	std::cout << "Brain ad: " << this << std::endl;
+	std::cout << "Brain🧠 Default constructor called" << std::endl;
 }
 
 Brain::Brain(const Brain &b)
 {
-	std::cout << "Brain Copy constructor called" << std::endl;
-	std::cout << "Brain ad: " << this << std::endl;
+	std::cout << "Brain🧠 Copy constructor called" << std::endl;
 	*this = b;
 }
 
 Brain & Brain::operator=(const Brain &b)
 {
-	std::cout << "Brain Copy assignment operator called" << std::endl;
+	std::cout << "Brain🧠 Copy assignment operator called" << std::endl;
 	if (this != &b)
 	{
 		for (int i(0); i < 100; ++i)
 		this->_ideas[i] = b._ideas[i];
 	}
-	std::cout << "Brain ad: " << this << std::endl;
 	return (*this);
 }
 
 Brain::~Brain()
 {
-	std::cout << "destruct Brain ad: " << this << std::endl;
-	std::cout << "Brain destructed" << std::endl;
+	std::cout << "Brain destructed ✨" << std::endl;
 }
 
 void Brain::setIdea(const std::string &newidea, int j)

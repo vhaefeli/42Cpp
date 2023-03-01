@@ -5,9 +5,11 @@
 
 #include <string> //pour les string
 #include <iostream> //pour l'affichage cout cin ...
+#include "MaClass2.hpp" // une classe utilisee mais sans imbrication
 
 class MaClass1; //declaration d-une class utilisee dans la class mais sans
-				// affiliation
+				// affiliation permet d'eviter les problemes d'imbrication. (une classe qui est
+				// dans une classe et vice versa) sinon mettre un #include "MaClass2.hpp"
 
 class	MaClass
 {
@@ -15,6 +17,7 @@ class	MaClass
 
 		int			_unChiffre;
 		std::string	_uneString;
+		MaClass2	_uneClass2;
 
 	protected : //accessible que par la classe et ses enfants
 

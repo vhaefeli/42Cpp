@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 14:14:20 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:56:28 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main( void )
 {
 	const AAnimal* j = new Dog();
 	const AAnimal* k = new Cat();
+	// AAnimal l;
 	std::cout << std::endl;
 	Cat i;
 	std::cout << std::endl;

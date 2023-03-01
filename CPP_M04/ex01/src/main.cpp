@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 12:43:25 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:40:07 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ int main( void )
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* k = new Cat();
+	Animal *tab[8];
+
+	for (int i(0); i < 8; i++)
+	{
+		if (i % 2)
+			tab[i] = new Dog();
+		else
+			tab[i] = new Cat();
+	}
 	std::cout << std::endl;
 	Cat i;
 	std::cout << std::endl;
@@ -50,6 +59,10 @@ int main( void )
 	k->makeSound();
 	std::cout << std::endl;
 
+	for (int i(0); i < 8; i++)
+	{
+		delete tab[i];
+	}
 	delete meta;
 	std::cout << std::endl;
 	delete j;

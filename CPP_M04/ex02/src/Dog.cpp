@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 14:16:01 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 10:58:30 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ Dog::Dog()
 	: AAnimal("Dog")
 {
 		_dogsBrain = new Brain();
-	std::cout << "Default Dog constructor called" << std::endl;
+	std::cout << "Default Dog 🐶 constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &c)
 
 {
-	std::cout << "Copy constructor Dog called" << std::endl;
+	std::cout << "Copy constructor Dog 🐶 called" << std::endl;
 	this->_dogsBrain = new Brain();
 	*this = c;
 }
 
 Dog & Dog::operator=(const Dog &c)
 {
-	std::cout << "Copy assignment operator Dog called" << std::endl;
+	std::cout << "Copy assignment operator Dog 🐶 called" << std::endl;
 	if (this != &c)
 	{
 		AAnimal::operator=(c);
@@ -42,12 +42,12 @@ Dog & Dog::operator=(const Dog &c)
 Dog::~Dog()
 {
 	delete _dogsBrain;
-	std::cout << _type << " destructed" << std::endl;
+	std::cout << _type << " destructed 🦴" << std::endl;
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "'Ouaffff'" << std::endl;
+	std::cout << "'Ouaffff' 🐶" << std::endl;
 }
 
 Brain & Dog::getBrain()
