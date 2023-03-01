@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/08 19:42:35 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:55:16 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void iter(T tab[], int tab_size, void(*f)(T &))
 	}
 }
 
-template<class T>
+template<typename T>
 void	print_el(T &val)
 {
 	std::cout << "Element = " << val << std::endl;
