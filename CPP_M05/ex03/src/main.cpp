@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/16 15:13:46 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:00:42 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int main( void )
 		Upgrade = Maurice.makeForm("RobotomyRequestForm", "Maurice");
 		Anna.signForm(*Upgrade);
 		Anna.executeForm(*Upgrade);
+		Anna.signForm(Upgrade1);
 		Anna.signForm(Upgrade1);
 		std::cout << "Upgrade1 is signed: " << Upgrade1.getSignedStatus() << std::endl;
 		std::cout << "Target: " << Upgrade1.getTarget() << std::endl;

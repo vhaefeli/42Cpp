@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/16 13:14:54 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:00:20 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,11 @@ void		Bureaucrat::signForm(AForm &f)
 		std::cout << *this << " couldn't sign " << f << " because ";
 		std::cout << e.what() << std::endl;
 	}
-
+	catch(const AForm::FormAlreadySignedException& e)
+	{
+		std::cout << *this << " couldn't sign " << f << " because ";
+		std::cout << e.what() << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat &b)

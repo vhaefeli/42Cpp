@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/28 01:59:05 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:37:49 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ AForm::AForm(const std::string name, int minGradeSignature, int minGradeExecutio
 		std::cout << " Grade must be between 1 (highest) and 150 (lowest)" << std::endl;
 		throw GradeTooLowException();
 	}
-	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature " << _minGradeSignature;
-	std::cout << " Minimal Grade for Execution " << _minGradeExecution << std::endl;
+	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature: " << _minGradeSignature;
+	std::cout << " Minimal Grade for Execution: " << _minGradeExecution << std::endl;
 }
 
 AForm::AForm(const AForm &f)
@@ -104,7 +104,7 @@ void	AForm::execute(const Bureaucrat &executor) const
 
 std::ostream& operator<<(std::ostream& o, const AForm &f)
 {
-	o << f.getName() << " Minimal Grade for Signature :" << f.getMinGradeSignature()
-	 << " Minimal Grade for Execution:" << f.getMinGradeExecution();
+	o << f.getName() << " (Minimal Grade for Signature: " << f.getMinGradeSignature()
+	 << " Minimal Grade for Execution: " << f.getMinGradeExecution() << ")";
 	return (o);
 }

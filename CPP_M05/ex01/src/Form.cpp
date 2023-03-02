@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:39:14 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/03 17:41:23 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:31:48 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ Form::Form(const std::string name, int minGradeSignature, int minGradeExecution)
 		std::cout << " Grade must be between 1 (highest) and 150 (lowest)" << std::endl;
 		throw GradeTooLowException();
 	}
-	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature" << _minGradeSignature;
-	std::cout << " Minimal Grade for Execution" << _minGradeExecution << std::endl;
+	std::cout << "Constructor called for " << _name << " Minimal Grade for Signature: " << _minGradeSignature;
+	std::cout << " Minimal Grade for Execution: " << _minGradeExecution << std::endl;
 }
 
 Form::Form(const Form &f)
@@ -91,8 +91,8 @@ void	Form::beSigned(Bureaucrat &b)
 
 std::ostream& operator<<(std::ostream& o, const Form &f)
 {
-	o << f.getName() << " Grade minimal to be allowed to signed the form :" << f.getMinGradeSignature()
-	 << " Grade minimal to be allowed to exectute the form :" << f.getMinGradeExecution();
+	o << f.getName() << " (Grade minimal to be allowed to signed the form: " << f.getMinGradeSignature()
+	 << " Grade minimal to be allowed to exectute the form: " << f.getMinGradeExecution() << ")";
 	return (o);
 }
 

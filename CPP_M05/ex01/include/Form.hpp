@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:20:12 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 11:34:56 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:25:10 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Form
 
 	public:
 
+			bool		getSignedStatus;
+
 			class GradeTooHighException : public std::exception
 			{
 				public:
@@ -47,10 +49,9 @@ class Form
 			~Form();
 
 			const std::string	getName(void) const;
-			bool		getSignedStatus;
-			void		beSigned(Bureaucrat &b);
-			int			getMinGradeSignature(void) const;
-			int			getMinGradeExecution(void) const;
+			void				beSigned(Bureaucrat &b);
+			int					getMinGradeSignature(void) const;
+			int					getMinGradeExecution(void) const;
 
 
 };

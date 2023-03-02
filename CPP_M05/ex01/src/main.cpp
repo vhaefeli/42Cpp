@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/25 12:05:42 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:27:36 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
 	{
 		Bureaucrat	Bob("Bob", 50);
 		Bureaucrat	Luc("Luc", 150);
-		Bureaucrat	Anna("Anna", 2);
+		Bureaucrat	Anna("Anna", 4);
 		Form		bestForm("BestForm", 50, 50);
 		Form		secondForm(bestForm);
 		std::cout << Anna << " will be promoted" << std::endl;

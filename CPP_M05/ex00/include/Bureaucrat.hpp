@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:21:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 17:44:36 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:57:22 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat
 	private:
 
 		const std::string	_name;
-		int		_grade;
+		int					_grade;
 
 		const static int minGrade = 150;
 		const static int maxGrade = 1;
@@ -48,9 +48,9 @@ class Bureaucrat
 		~Bureaucrat();
 
 		const std::string	getName(void) const;
-		int			getGrade(void) const;
-		void		promote();
-		void		demote();
+		int					getGrade(void) const;
+		void				promote();
+		void				demote();
 
 };
 

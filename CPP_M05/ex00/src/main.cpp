@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:19:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/20 17:57:44 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:58:20 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main( void )
 	try
 	{
 		Bureaucrat Bob("Bob", 50);
-		Bureaucrat Luc("Luc", 151);
-		Bureaucrat Anna("Anna", 2);
+		Bureaucrat Luc("Luc", 150);
+		Bureaucrat Anna("Anna",2);
 		std::cout << Anna << " will be promoted" << std::endl;
 		Anna.promote();
 		std::cout << Anna << " just get promoted" << std::endl;

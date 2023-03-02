@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:25:06 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/01/27 17:00:27 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:59:23 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,11 @@ void		Bureaucrat::signForm(AForm &f)
 		std::cout << *this << " signed " << f <<std::endl;
 	}
 	catch(const AForm::GradeTooLowException& e)
+	{
+		std::cout << *this << " couldn't sign " << f << " because ";
+		std::cout << e.what() << std::endl;
+	}
+	catch(const AForm::FormAlreadySignedException& e)
 	{
 		std::cout << *this << " couldn't sign " << f << " because ";
 		std::cout << e.what() << std::endl;

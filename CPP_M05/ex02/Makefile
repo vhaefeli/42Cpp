@@ -6,7 +6,7 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/01/27 15:29:02 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/03/01 14:40:09 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ clean:
 	rm -rf $(OBJS_DIR)
 fclean: clean
 	rm -f $(TARGET)
+	rm *_shrubbery
 
 re: fclean all
 
