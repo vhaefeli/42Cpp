@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:50:26 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/03/02 18:56:55 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:32:28 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,15 @@
 
 int main ()
 {
-	Array<int>		nbr(4); 
-	std::cout << "nbr" << &nbr <<std::endl;
+	Array<int>		nbr(4);
 	Array<std::string> texte(3);
-	Array<int>		*a = new Array<int>; 
-	// int * a = new int(); 
-	std::cout << "a " << a <<std::endl;
-	std::cout << "texte " << &texte <<std::endl;
+	Array<int>		*a = new Array<int>;
+	// int * a = new int();
 	for (unsigned int i = 0; i < nbr.size(); i++) {
 			nbr[i] = 4 * i + 1;
 		}
 
 	Array<int>	nbr2(nbr);
-	std::cout << "nbr2" << &nbr2 <<std::endl;
 	texte[0] = "my god ";
 	texte[1] = "it's ";
 	texte[2]= "so annoying!";
@@ -49,6 +45,6 @@ int main ()
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	delete a;
 	return 0;
 }

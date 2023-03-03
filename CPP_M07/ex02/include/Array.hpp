@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/03/02 18:55:43 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:31:59 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ template <typename T>
 Array<T>::Array(unsigned int n)
 {
 	this->_size = n;
-	this->_values = new T[n]; 
+	this->_values = new T[n];
 }
 
 template <typename T>
 Array<T>::Array(const Array<T> &rhs)
 {
-	this->_values = new T[0]; 
+	this->_values = new T[0];
 	*this = rhs;
 }
 
@@ -83,7 +83,7 @@ T	&Array<T>::operator[](unsigned int i)
 template <typename T>
 Array<T>::~Array()
 {
-	delete (this->_values);
+	delete[] (this->_values); //on a fait un new sur un tableau donc il faut faire un delete[]!!!
 }
 
 template <typename T>
