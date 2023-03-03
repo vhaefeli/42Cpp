@@ -6,13 +6,13 @@
 #    By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 13:24:46 by vhaefeli          #+#    #+#              #
-#    Updated: 2023/02/04 00:46:11 by vhaefeli         ###   ########.fr        #
+#    Updated: 2023/03/02 17:52:26 by vhaefeli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 TARGET		= base
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror
+CXXFLAGS	= -Wall -Wextra -Werror -pedantic -std=c++98
 CPPFLAGS	= -Iinclude
 SRC_DIR		= src
 OBJS_DIR	= obj
@@ -22,12 +22,6 @@ OBJS = 		$(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 
 all: $(TARGET)
 
-UNAME= $(shell uname -s)
-ifeq ($(UNAME), Darwin)
-98: CXX = g++-11
-endif
-98: CXXFLAGS += -pedantic -std=c++98
-98: fclean $(TARGET)
 
 debug: CXXFLAGS += -g3
 debug: LDFLAGS += -fsanitize=address

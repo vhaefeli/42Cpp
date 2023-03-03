@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/10 20:46:52 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/02 18:55:43 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ public:
 			}
 	};
 
-	Array();
+	// Array(); => ne doit pas etre mis car cela fait doublon avec Array(unsigned int n = 0);
+	// et le compilateur ne saura pas lequel utiliser.
 	Array(unsigned int n = 0);
 	Array(const Array<T> &rhs);
 	Array &operator=(const Array &rhs);
@@ -44,23 +45,10 @@ public:
 };
 
 template <typename T>
-Array<T>::Array()
-{
-	this->_size = 0;
-	this->_values = new T[0]; 
-}
-
-template <typename T>
 Array<T>::Array(unsigned int n)
 {
 	this->_size = n;
 	this->_values = new T[n]; 
-}
-
-template <typename T>
-Array<T>::~Array()
-{
-	delete (this->_values);
 }
 
 template <typename T>
@@ -90,6 +78,12 @@ T	&Array<T>::operator[](unsigned int i)
 		throw Array<T>::InvalidIndexException();
 	else
 		return (_values[i]);
+}
+
+template <typename T>
+Array<T>::~Array()
+{
+	delete (this->_values);
 }
 
 template <typename T>
