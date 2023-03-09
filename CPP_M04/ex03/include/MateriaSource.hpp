@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 20:11:07 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/22 13:50:02 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:39:33 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class MateriaSource: public IMateriaSource
 		MateriaSource &operator=(const MateriaSource &rhs);
 		virtual ~MateriaSource();
 		virtual void learnMateria(AMateria* m);
-		virtual AMateria* createMateria(std::string const & type);
+		virtual AMateria *createMateria(std::string const &type);
 };
 
 #endif
