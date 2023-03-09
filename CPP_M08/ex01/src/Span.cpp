@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:46:28 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/24 15:32:51 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:19:32 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Span &Span::operator=(const Span &rhs)
 {
 	this->_maxSize = rhs._maxSize;
 	this->_inserted = rhs._inserted;
-	for (int i(0); i < this->_inserted; i++)
+	for (unsigned int i(0); i < this->_inserted; i++)
 	{
 		this->_values[i] = rhs._values[i];
 	}
@@ -75,7 +75,7 @@ void	Span::addRandom(int n)
 
 void	Span::printNbrs()
 {
-	for (int i(0); i < this->_inserted; i++)
+	for (unsigned int i(0); i < this->_inserted; i++)
 	{
 		std::cout << " * " << this->_values[i];
 	}
@@ -90,7 +90,7 @@ int	Span::shortestSpan()
 		throw Span::NotEnoughNbr();
 	std::sort(this->_values.begin(), this->_values.begin() + this->_inserted);
 	shortestSpan = (this->_values[1] - this->_values[0]);
-	for (int i(1); i < (this->_inserted - 1) ; i++)
+	for (unsigned int i(1); i < (this->_inserted - 1) ; i++)
 	{
 		int	diff;
 

@@ -6,7 +6,7 @@
 /*   By: vhaefeli <vhaefeli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 00:50:26 by vhaefeli          #+#    #+#             */
-/*   Updated: 2023/02/24 15:24:33 by vhaefeli         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:36:28 by vhaefeli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 
 int main (int argc, char **argv)
 {
@@ -51,10 +52,17 @@ int main (int argc, char **argv)
 	{
 		for (int i(0); i < 5; i++)
 		{
-			int	n;
+			std::string n;
 			std::cout << "enter a number ";
 			std::cin >> n;
-			sp.addNumber(n);
+			try
+			{
+				sp.addNumber(stoi(n));
+			}
+			catch (const std::exception& e)
+			{
+				std::cerr << "only number int allowed" <<std::endl;
+			}
 			std::cout << std::endl;
 		}
 	}
@@ -87,11 +95,20 @@ int main (int argc, char **argv)
 
 	try
 	{
-		int	n;
+		std::string n;
+		int			nb = 0;
 
 		std::cout << "enter the quantity of numbers you want add: ";
 		std::cin >> n;
-		sp.addRandom(n);
+		try
+		{
+			nb = stoi(n);
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << "only number int allowed" <<std::endl;
+		}
+		sp.addRandom(nb);
 		std::cout << std::endl;
 	}
 	catch (const std::exception& e)
@@ -101,11 +118,20 @@ int main (int argc, char **argv)
 
 	try
 	{
-		int	n;
+		std::string n;
+		int			nb = 0;
 
 		std::cout << "enter the quantity of numbers you want add: ";
 		std::cin >> n;
-		sp.addRandom(n);
+		try
+		{
+			nb = stoi(n);
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << "only number int allowed" <<std::endl;
+		}
+		sp.addRandom(nb);
 		std::cout << std::endl;
 	}
 	catch (const std::exception& e)
