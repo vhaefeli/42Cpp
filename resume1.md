@@ -1,4 +1,4 @@
-/* ***************** LE HPP AVEC LA DECLARATION D'UNE CLASS ***************** */
+#/* ***************** LE HPP AVEC LA DECLARATION D'UNE CLASS ***************** */
 
 #ifndef MACLASS_HPP
 # define MACLASS_HPP
@@ -56,58 +56,58 @@ std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance);
 #endif
 
 
-// version sans commentaire pour copie
-#ifndef MACLASS_HPP
-# define MACLASS_HPP
+##version sans commentaire pour copie
+	#ifndef MACLASS_HPP
+	# define MACLASS_HPP
 
-# include <string>
-# include <iostream>
+	# include <string>
+	# include <iostream>
 
-class	MaClass
-{
-	private:
+	class	MaClass
+	{
+		private:
 
-		int			_unChiffre;
-		std::string	_uneString;
+			int			_unChiffre;
+			std::string	_uneString;
 
-	protected :
+		protected :
 
-		virtual void	uneFonction() const;
+			virtual void	uneFonction() const;
 
-	public :
+		public :
 
 
-		class MonException : public std::exception
-		{
-			public :
-				virtual const char *what() const throw();
-		};
+			class MonException : public std::exception
+			{
+				public :
+					virtual const char *what() const throw();
+			};
 
-		MaClass();
-		MaClass(int unNombre, std::string duTexte);
-		MaClass(const MaClass &uneInstance);
-		MaClass &operator=( const MaClass &rhs);
-		~MaClass();
+			MaClass();
+			MaClass(int unNombre, std::string duTexte);
+			MaClass(const MaClass &uneInstance);
+			MaClass &operator=( const MaClass &rhs);
+			~MaClass();
 
-		int			unChiffrePublique;
+			int			unChiffrePublique;
 
-		std::string	getString() const;
-		void		setUnChiffre(int n);
-		void		actionOne(MaClass1 const &class1);
-};
+			std::string	getString() const;
+			void		setUnChiffre(int n);
+			void		actionOne(MaClass1 const &class1);
+	};
 
-std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance);
+	std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance);
 
-#endif
+	#endif
 
-/* *** LE CPP AVEC LES DEFINITIONS DES PRINCIPALES FONCTIONS D'UNE CLASS  *** */
+#/* *** LE CPP AVEC LES DEFINITIONS DES PRINCIPALES FONCTIONS D'UNE CLASS  *** */
 
-// constructeur par defaut
+## constructeur par defaut
 MaClass::MaClass()
 	: _unChiffre(42), _uneString("quelle ecole!"), unChiffrePublique(0)
 {}
 
-// plus ou moins equivalent a (moins optimum car fait en 2 temps):
+## plus ou moins equivalent a (moins optimum car fait en 2 temps):
 MaClass::MaClass()
 {
 	this->_unChiffre = 42;
@@ -115,7 +115,7 @@ MaClass::MaClass()
 	this->unChiffrePublique = 0;
 }
 
-//constructeur avec argument avec une condition sur un des arguments
+##/constructeur avec argument avec une condition sur un des arguments
 MaClass::MaClass(int unNombre, std::string duTexte)
 	:_uneString(duTexte), unChiffrePublique(0)
 {
@@ -125,14 +125,14 @@ MaClass::MaClass(int unNombre, std::string duTexte)
 		this->_unChiffre = 42;
 }
 
-//constucteur par copie
+##/constucteur par copie
 MaClass::MaClass(const MaClass &uneInstance)
 	:_unChiffre(uneInstance._unChiffre)
 {
 	*this = uneInstance; // fait appel a l'operateur = qu'on surcharge
 }
 
-// surcharge de l'operateur =
+## surcharge de l'operateur =
 MaClass &MaClass::operator=(const MaClass &rhs)
 {
 
@@ -144,7 +144,7 @@ MaClass &MaClass::operator=(const MaClass &rhs)
 	return (*this);
 }
 
-//destructeur
+##destructeur
 MaClass::~MaClass()
 {
 	//ne pas oublier les "delete" s'il y a eu des new dans le constructeur!
@@ -166,15 +166,14 @@ const char *MaClass::MonException::what() const throw()
 	return ("mon super message d'erreur");
 }
 
-// surcharge de l'operateur "<<" de ostream. permet de retourner un texte sur
-// les sorties appelee
+## surcharge de l'operateur "<<" de ostream. permet de retourner un texte sur les sorties appelee
 std::ostream &operator<<(std::ostream &o, const MaClass &uneInstance)
 {
 	o << uneInstance.getString() << " oui c'est clair " ;
 	return (o);
 }
 
-/* **************************** UTILISATION ********************************* */
+##/* **************************** UTILISATION ********************************* */
 
 int main()
 {
@@ -185,15 +184,15 @@ int main()
 }
 
 
-/* ************************ DES CAS PARTICULIERS **************************** */
-/* ************************************************************************** */
+#/* ************************ DES CAS PARTICULIERS **************************** */
+#/* ************************************************************************** */
 
-// metode virtual
+## metode virtual
 
 en mettant virtual devant la methode le programme sait qu-il faut aller chercher la fonction de l-enfant.
 
 
-// CLASS ABSTRAITE
+## CLASS ABSTRAITE
 
 class AMaClassAbstraite
 {
@@ -206,7 +205,7 @@ class AMaClassAbstraite
 }
 
 /* ************************************************************************** */
-// CLASS INTERFACE
+## CLASS INTERFACE
 
 class IMaClass
 {
@@ -218,7 +217,7 @@ class IMaClass
 }
 
 /* ************************************************************************** */
-// CLASS STATIQUE
+## CLASS STATIQUE
 
 //une class est dite statique lorsque toute ses methodes specifiques sont statiques
 // et qu'il y a aucune variable. les constructeurs sont mis en "private" car aucune
@@ -243,7 +242,7 @@ class Serializer
 
 };
 
-// pour utiliser les methodes ont met simplement MaClassStatic::maMethode() par exemple:
+pour utiliser les methodes ont met simplement MaClassStatic::maMethode() par exemple:
 
 std::cout <<"deserialize :" << Serializer::deserialize(intptr) << std::endl;
 
