@@ -332,6 +332,8 @@ fonction template exemple
 	}
 
 & passer par reference: toujours le faire si possible pour economiser de la memoire const : a utiliser si on ne modifie pas les valeurs pour eviter toutes modifications non desirees
+On peut créer des class template. généralement il n'y a pas de cpp mais tout est dans le hpp ou tpp.
+exemples voir le CPP07
 
 ## utilisation
 
